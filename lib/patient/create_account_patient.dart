@@ -81,16 +81,12 @@ class _RegistrationState extends State<Registration> {
             const SizedBox(
               height: 5,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 100,
-                  width: 140,
-                  child: Image.asset('logo.png'),
-                )
-              ],
+            Center(
+              child: Image.asset(
+                'assets/signUp.png',height: 200, width: 500,
+              ),
             ),
+
             const Center(
                 child: Text(
               'Create New Account',

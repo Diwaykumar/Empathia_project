@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:fyp_project/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import '../Services/auth_service.dart';
-import '../common/widgets/custom_textfield.dart';
-import '../patient/forgot_passwd_pat.dart';
+import 'package:fyp_project/Services/auth_service.dart';
+import 'package:fyp_project/common/widgets/custom_textfield.dart';
+import '../psychologist/forgot-passwd_psych.dart';
+
 
 class SignInAsPsych extends StatelessWidget {
   const SignInAsPsych({super.key});
@@ -149,7 +150,7 @@ class _FormFieldsState extends State<FormFields> {
                       context,
                       PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) =>
-                        const ForgotPasswordPatient(),
+                        const ForgotPasswordPsych(),
                         transitionsBuilder: (context, animation, secondaryAnimation, child) {
                           var begin = 0.0;
                           var end = 1.0;

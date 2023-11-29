@@ -77,6 +77,9 @@ flutter:
     - assets/Background1.png
     - assets/Group.png
     - assets/lotieFile.png
+    - assets/signIn.png
+    - assets/signUp.png
+    - assets/forgotPasswd.png
 
     # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

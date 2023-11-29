@@ -30,145 +30,158 @@ class _OnboardingState extends State<Onboarding> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: contentsList[currentIndex].backgroundColor,
+      backgroundColor: Colors.transparent,
+      // backgroundColor: contentsList[currentIndex].backgroundColor,
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 5,
-              child: PageView.builder(
-                controller: _controller,
-                itemCount: contentsList.length,
-                onPageChanged: (int index) {
-                  if (index >= currentIndex) {
-                    setState(() {
-                      currentIndex = index;
-                      percentage += 0.25;
-                    });
-                  } else {
-                    setState(() {
-                      currentIndex = index;
-                      percentage -= 0.25;
-                    });
-                  }
-                },
-                itemBuilder: (context, index) {
-                  return Column(
-                    crossAxisAlignment: currentIndex == 0 || currentIndex == 3
-                        ? CrossAxisAlignment.start
-                        : CrossAxisAlignment.end,
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF0097A7), // Start color
+                Color(0xFFADD0E1), // End color
+              ],
+            ),
+          ),
+          child: Column(
+            children: [
+              Expanded(
+                flex: 5,
+                child: PageView.builder(
+                  controller: _controller,
+                  itemCount: contentsList.length,
+                  onPageChanged: (int index) {
+                    if (index >= currentIndex) {
+                      setState(() {
+                        currentIndex = index;
+                        percentage += 0.25;
+                      });
+                    } else {
+                      setState(() {
+                        currentIndex = index;
+                        percentage -= 0.25;
+                      });
+                    }
+                  },
+                  itemBuilder: (context, index) {
+                    return Column(
+                      crossAxisAlignment: currentIndex == 0 || currentIndex == 3
+                          ? CrossAxisAlignment.start
+                          : CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(24.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                contentsList[index].title,
+                                style: const TextStyle(
+                                  fontFamily: "SF-Pro",
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 28.0,
+                                  letterSpacing: 0.24,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 12),
+                              Text(
+                                contentsList[index].description,
+                                style: const TextStyle(
+                                  fontFamily: "SF-Pro",
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18.0,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                            height: MediaQuery.of(context).size.height * 0.5,
+                    alignment: Alignment.center,
+                            child: Image.asset(contentsList[index].image)
+                    ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(24.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text(
-                              contentsList[index].title,
-                              style: const TextStyle(
-                                fontFamily: "SF-Pro",
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 28.0,
-                                letterSpacing: 0.24,
-                                color: Colors.white,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Row(
+                            children: List.generate(
+                              contentsList.length,
+                                  (index) => buildDot(index, context),
+                            ),
+                          ),
+                          // const SizedBox(height: 10),
+                          CupertinoButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/createAcc');
+                            },
+                            child: const Text(
+                              "Skip",
+                              style: TextStyle(
+                                color: Colors.white70,
                               ),
                             ),
-                            const SizedBox(height: 12),
-                            Text(
-                              contentsList[index].description,
-                              style: const TextStyle(
-                                fontFamily: "SF-Pro",
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18.0,
-                                color: Colors.white70,
+                          )
+                        ],
+                      ),
+                      CupertinoButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          if (currentIndex == contentsList.length - 1) {
+                            Navigator.pushNamed(context, '/createAcc');
+                            // Go to next page...
+                          }
+                          _controller!.nextPage(
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            SizedBox(
+                              height: 55,
+                              width: 55,
+                              child: CircularProgressIndicator(
+                                value: percentage,
+                                backgroundColor: Colors.white38,
+                                valueColor: const AlwaysStoppedAnimation<Color>(
+                                  Colors.white,
+                                ),
+                              ),
+                            ),
+                            CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                color: contentsList[currentIndex].backgroundColor,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      Container(
-                          height: MediaQuery.of(context).size.height * 0.5,
-                  alignment: Alignment.center,
-                          child: Image.asset(contentsList[index].image)
-                  ),
+                      )
                     ],
-                  );
-                },
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          children: List.generate(
-                            contentsList.length,
-                                (index) => buildDot(index, context),
-                          ),
-                        ),
-                        // const SizedBox(height: 10),
-                        CupertinoButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/createAcc');
-                          },
-                          child: const Text(
-                            "Skip",
-                            style: TextStyle(
-                              color: Colors.white70,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    CupertinoButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        if (currentIndex == contentsList.length - 1) {
-                          Navigator.pushNamed(context, '/createAcc');
-                          // Go to next page...
-                        }
-                        _controller!.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeInOut,
-                        );
-                      },
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          SizedBox(
-                            height: 55,
-                            width: 55,
-                            child: CircularProgressIndicator(
-                              value: percentage,
-                              backgroundColor: Colors.white38,
-                              valueColor: const AlwaysStoppedAnimation<Color>(
-                                Colors.white,
-                              ),
-                            ),
-                          ),
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              color: contentsList[currentIndex].backgroundColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
