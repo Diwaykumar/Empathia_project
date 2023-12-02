@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:fyp_project/Services/auth_service.dart';
-import 'package:fyp_project/pages/create_acc.dart';
-import 'package:fyp_project/pages/create_acc_as.dart';
-import 'package:fyp_project/pages/sign_in_as.dart';
-import 'package:fyp_project/patient/create_account_patient.dart';
-import 'package:fyp_project/patient/forgot_passd_pat_2.dart';
-import 'package:fyp_project/patient/forgot_passwd_pat.dart';
-import 'package:fyp_project/patient/forgot_passwd_pat_3.dart';
-import 'package:fyp_project/patient/home_patient.dart';
-import 'package:fyp_project/patient/signin_as_patient.dart';
 import 'package:fyp_project/providers/user_provider.dart';
-import 'package:fyp_project/psychologist/create_account_psych.dart';
-import 'package:fyp_project/psychologist/forgot-passwd_psych.dart';
-import 'package:fyp_project/psychologist/forgot_passwd_psych2.dart';
-import 'package:fyp_project/psychologist/forgot_passwd_psych3.dart';
-import 'package:fyp_project/psychologist/home_psych.dart';
-import 'package:fyp_project/psychologist/signin_as_psych.dart';
-import 'pages/on_boarding.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
+import 'pages/onboarding/create_acc.dart';
+import 'pages/onboarding/create_acc_as.dart';
+import 'pages/onboarding/on_boarding.dart';
+import 'pages/onboarding/sign_in_as.dart';
+import 'pages/patient/create_account_patient.dart';
+import 'pages/patient/forgot_passd_pat_2.dart';
+import 'pages/patient/forgot_passwd_pat.dart';
+import 'pages/patient/forgot_passwd_pat_3.dart';
+import 'pages/patient/home_patient.dart';
+import 'pages/patient/signin_as_patient.dart';
+import 'pages/psychologist/create_account_psych.dart';
+import 'pages/psychologist/forgot-passwd_psych.dart';
+import 'pages/psychologist/forgot_passwd_psych2.dart';
+import 'pages/psychologist/forgot_passwd_psych3.dart';
+import 'pages/psychologist/home_psych.dart';
+import 'pages/psychologist/signin_as_psych.dart';
 
 void main() {
-
-  runApp(MultiProvider(providers:[
-    ChangeNotifierProvider(create: (context) => UserProvider(),)
-  ],child: const MyApp()));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+    )
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -34,7 +36,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   final AuthService authService = AuthService();
 
   @override
@@ -42,6 +43,7 @@ class _MyAppState extends State<MyApp> {
     // TODO: implement initState
     super.initState();
   }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -94,11 +96,6 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.blue.shade50,
       body: Stack(
         children: [
-          // Image.asset(
-          //  'Main.png',
-          //  width: 500,
-          //  fit: BoxFit.cover,
-          // ),
           Center(
             child: Image.asset(
               'empathia.png',

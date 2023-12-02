@@ -23,14 +23,14 @@ class CustomTextField extends StatelessWidget {
     Widget getPrefixIcon() {
       switch (prefixIconString) {
         case 'email':
-          return const Icon(Icons.alternate_email, color: Color(0xff58C6EC));
+          return Icon(Icons.email_outlined, color: Colors.cyan[700]);
           case 'phone':
-          return const Icon(Icons.phone, color: Color(0xff58C6EC));
+          return Icon(Icons.phone_android_rounded, color: Colors.cyan[700]);
           case 'password':
-          return const Icon(Icons.password, color: Color(0xff58C6EC));
+          return Icon(Icons.remove_red_eye, color: Colors.cyan[700]);
         default:
         // Handle other cases or provide a default icon
-          return const Icon(Icons.account_circle, color: Color(0xff58C6EC));
+          return Icon(Icons.person_outline_outlined, color: Colors.cyan[700]);
       }
     }
     return TextFormField(
