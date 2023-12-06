@@ -1,15 +1,17 @@
 import "package:flutter/material.dart";
-import "../common/widgets/custom_button.dart";
-import "../common/widgets/custom_textfield.dart";
 
-class ForgotPasswordPsych extends StatefulWidget {
-  const ForgotPasswordPsych({super.key});
+import "../../common/widgets/custom_button.dart";
+import "../../common/widgets/custom_textfield.dart";
+
+
+class ForgotPasswordPatient extends StatefulWidget {
+  const ForgotPasswordPatient({super.key});
 
   @override
-  _ForgotPasswordPsychState createState() => _ForgotPasswordPsychState();
+  _ForgotPasswordPatientState createState() => _ForgotPasswordPatientState();
 }
 
-class _ForgotPasswordPsychState extends State<ForgotPasswordPsych> {
+class _ForgotPasswordPatientState extends State<ForgotPasswordPatient> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
 
@@ -85,7 +87,7 @@ class _ForgotPasswordPsychState extends State<ForgotPasswordPsych> {
                           fontsize: 20,
                           onTap: () {
                             Navigator.of(context, rootNavigator: true)
-                                .pushNamed('/forgotPasswdPsych2');
+                                .pushNamed('/forgotPasswdPatient2');
                           },
                         ),
                       ),

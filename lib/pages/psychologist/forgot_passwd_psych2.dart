@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../common/widgets/custom_button.dart';
-import '../common/widgets/custom_textfield.dart';
+
+import '../../common/widgets/custom_button.dart';
+import '../../common/widgets/custom_textfield.dart';
+
 
 class ForgotPasswdPsych2 extends StatefulWidget {
   const ForgotPasswdPsych2({super.key});

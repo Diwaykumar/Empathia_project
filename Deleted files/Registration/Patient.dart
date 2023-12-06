@@ -6,8 +6,6 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 
-
-
 class Patient extends StatefulWidget {
   const Patient({super.key});
 
@@ -18,7 +16,6 @@ class Patient extends StatefulWidget {
 class _PatientState extends State<Patient> {
   final _signUpFormKey = GlobalKey<FormState>();
 
-
   final AuthService authService = AuthService();
 
   final TextEditingController usernamecontroller = TextEditingController();
@@ -27,7 +24,7 @@ class _PatientState extends State<Patient> {
   final TextEditingController passwordcontroller = TextEditingController();
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
     emailcontroller.dispose();
     passwordcontroller.dispose();
@@ -35,8 +32,8 @@ class _PatientState extends State<Patient> {
     phonecontroller.dispose();
   }
 
-   signUpUser() async {
-     authService.signUpUser(
+  signUpUser() async {
+    authService.signUpUser(
       context: context,
       email: emailcontroller.text,
       password: passwordcontroller.text,
@@ -44,21 +41,13 @@ class _PatientState extends State<Patient> {
       phone: phonecontroller.text,
       userType: 'patient',
     );
-
   }
 
-
-
-
   @override
-
-
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-
-
       backgroundColor: Colors.blue[50],
       body: Form(
         // autovalidateMode: AutovalidateMode.always,
@@ -97,75 +86,101 @@ class _PatientState extends State<Patient> {
             ),
             const Center(
                 child: Text(
-                  'Create New Account',
-                  style: TextStyle(
-                      fontSize: 26,
-                      fontFamily: 'Rubik Medium',
-                      color: Color(0xff198EB6)),
-                )),
+              'Create New Account',
+              style: TextStyle(
+                  fontSize: 26,
+                  fontFamily: 'Rubik Medium',
+                  color: Color(0xff198EB6)),
+            )),
             SizedBox(
               height: 70,
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 21),
-              child: CustomText(text: 'Full Name', Fontsize: 18, Weight: FontWeight.normal, textcolor:  Color(0xff060607) ),
+              child: CustomText(
+                  text: 'Full Name',
+                  Fontsize: 18,
+                  Weight: FontWeight.normal,
+                  textcolor: Color(0xff060607)),
             ),
-
-
-
             const SizedBox(
               height: 2,
               width: 15,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CustomTextField(controller: usernamecontroller, hintText: 'username', labeltext: 'Enter your Username', prefixIconString: 'Name',),
+              child: CustomTextField(
+                controller: usernamecontroller,
+                hintText: 'username',
+                labeltext: 'Enter your Username',
+                prefixIconString: 'Name',
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 21),
-              child: CustomText(text: 'Password', Fontsize: 18, Weight: FontWeight.normal, textcolor:  Color(0xff060607) ),
+              child: CustomText(
+                  text: 'Password',
+                  Fontsize: 18,
+                  Weight: FontWeight.normal,
+                  textcolor: Color(0xff060607)),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CustomTextField(controller: passwordcontroller, hintText: 'password', labeltext: 'Enter your Password', prefixIconString: 'password',),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 21),
-              child: CustomText(text: 'Email', Fontsize: 18, Weight: FontWeight.normal, textcolor:  Color(0xff060607) ),
-            ),
-
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CustomTextField(controller: emailcontroller, hintText: 'email', labeltext: 'Enter your email', prefixIconString: 'email',),
+              child: CustomTextField(
+                controller: passwordcontroller,
+                hintText: 'password',
+                labeltext: 'Enter your Password',
+                prefixIconString: 'password',
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 21),
-              child: CustomText(text: 'Phone Number', Fontsize: 18, Weight: FontWeight.normal, textcolor:  Color(0xff060607) ),
+              child: CustomText(
+                  text: 'Email',
+                  Fontsize: 18,
+                  Weight: FontWeight.normal,
+                  textcolor: Color(0xff060607)),
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CustomTextField(controller: phonecontroller, hintText: 'Phone', labeltext: 'Enter your Number', prefixIconString: 'phone',),
+              child: CustomTextField(
+                controller: emailcontroller,
+                hintText: 'email',
+                labeltext: 'Enter your email',
+                prefixIconString: 'email',
+              ),
             ),
-
-
-
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 21),
+              child: CustomText(
+                  text: 'Phone Number',
+                  Fontsize: 18,
+                  Weight: FontWeight.normal,
+                  textcolor: Color(0xff060607)),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomTextField(
+                controller: phonecontroller,
+                hintText: 'Phone',
+                labeltext: 'Enter your Number',
+                prefixIconString: 'phone',
+              ),
+            ),
             const SizedBox(
               height: 35,
             ),
-
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth >= 600 ? 100 :20 ),
-              child: CustomButton(text: "Register", fontsize: 20,
-                  onTap: (){
-                    if(_signUpFormKey.currentState!.validate()){
+              padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth >= 600 ? 100 : 20),
+              child: CustomButton(
+                  text: "Register",
+                  fontsize: 20,
+                  onTap: () {
+                    if (_signUpFormKey.currentState!.validate()) {
                       signUpUser();
                     }
-                  }
-              ),
+                  }),
             ),
             SizedBox(
               height: 20,
@@ -173,34 +188,31 @@ class _PatientState extends State<Patient> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 Text(
                   'Have an account? ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    // decoration: TextDecoration.underline,
+                      // decoration: TextDecoration.underline,
                       fontSize: 16,
                       fontFamily: 'Rubik Regular',
                       color: Color(0xff060607)),
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pushNamed(context, '/login');
                   },
-
                   child: const Text(
                     'Sign in',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         decoration: TextDecoration.underline,
                         decorationColor:
-                        Colors.blue, // Customize the underline color
+                            Colors.blue, // Customize the underline color
                         decorationThickness: 2.0,
                         fontSize: 17,
                         fontFamily: 'Rubik Medium',
                         color: Color(0xff3EB9E3)),
                   ),
-
                 ),
                 SizedBox(
                   height: 40,

@@ -1,6 +1,7 @@
-import 'package:fyp_project/pages/create_acc_as.dart';
-import 'package:fyp_project/pages/sign_in_as.dart';
 import 'package:flutter/material.dart';
+import 'package:fyp_project/pages/onboarding/sign_in_as.dart';
+
+import 'create_acc_as.dart';
 
 class CreateAccount extends StatelessWidget {
   const CreateAccount({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class CreateAccount extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: const Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: EdgeInsets.all(20),
                       child: Icon(
                         Icons.arrow_back_ios_new_outlined,
                         color: Colors.white,
@@ -61,9 +62,9 @@ class CreateAccount extends StatelessWidget {
                   backgroundColor: const Color(0xFFFFFFFF),
                   padding: const EdgeInsets.all(16),
                   alignment: Alignment.center,
-                  fixedSize: const Size(330, 60),
+                  fixedSize: const Size(330, 55),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
                 child: const Text(
@@ -110,8 +111,8 @@ class CreateAccount extends StatelessWidget {
                       "Sign In",
                       style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Rubik Regular',
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Rubik Medium',
                         color: Colors.white,
                       ),
                     ),

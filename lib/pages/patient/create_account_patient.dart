@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:fyp_project/common/widgets/custom_button.dart';
 import 'package:fyp_project/common/widgets/custom_textfield.dart';
 import 'package:fyp_project/services/auth_service.dart';
+import 'package:flutter/material.dart';
 
-class CreateAccountPsych extends StatelessWidget {
-  const CreateAccountPsych({super.key});
+class CreateAccountPatient extends StatelessWidget {
+  const CreateAccountPatient({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,6 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
   final _signUpFormKey = GlobalKey<FormState>();
-
   final AuthService authService = AuthService();
 
   final TextEditingController usernamecontroller = TextEditingController();
@@ -45,7 +44,7 @@ class _RegistrationState extends State<Registration> {
         password: passwordcontroller.text,
         name: usernamecontroller.text,
         phone: phonecontroller.text,
-        userType: 'psycologist');
+        userType: 'patient');
   }
 
   @override
@@ -53,7 +52,6 @@ class _RegistrationState extends State<Registration> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.blue[50],
       body: Form(
         // autovalidateMode: AutovalidateMode.always,
         key: _signUpFormKey,
@@ -69,8 +67,8 @@ class _RegistrationState extends State<Registration> {
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
-                      Icons.arrow_back_sharp,
-                      color: Colors.blue[400],
+                      Icons.arrow_back_ios_new_outlined,
+                      color: Colors.cyan.shade700,
                     ),
                   ),
                 ),
@@ -81,20 +79,28 @@ class _RegistrationState extends State<Registration> {
             ),
             Center(
               child: Image.asset(
-                'assets/signUp.png',height: 200, width: 500,
+                'assets/signUp.png',
+                height: 200,
+                width: 500,
               ),
             ),
-
+            Center(
+              child: Text(
+                'Get Started',
+                style: TextStyle(
+                    fontSize: 26,
+                    fontFamily: 'Rubik Medium',
+                    color: Colors.cyan[700]),
+              ),
+            ),
             const Center(
-                child: Text(
-                  'Create New Account',
-                  style: TextStyle(
-                      fontSize: 26,
-                      fontFamily: 'Rubik Medium',
-                      color: Color(0xff198EB6)),
-                )),
+              child: Text(
+                'By creating a free account',
+                style: TextStyle(fontSize: 20, color: Colors.black54),
+              ),
+            ),
             const SizedBox(
-              height: 70,
+              height: 20,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 21),
@@ -102,7 +108,7 @@ class _RegistrationState extends State<Registration> {
                   text: 'Full Name',
                   Fontsize: 18,
                   Weight: FontWeight.normal,
-                  textcolor: Color(0xff060607)),
+                  textcolor: Colors.black),
             ),
             const SizedBox(
               height: 2,
@@ -157,7 +163,7 @@ class _RegistrationState extends State<Registration> {
                   text: 'Phone Number',
                   Fontsize: 18,
                   Weight: FontWeight.normal,
-                  textcolor: Color(0xff060607)),
+                  textcolor: Colors.black),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -193,31 +199,27 @@ class _RegistrationState extends State<Registration> {
                   'Already a member? ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    // decoration: TextDecoration.underline,
-                      fontSize: 16,
+                      // decoration: TextDecoration.underline,
+                      fontSize: 18,
                       fontFamily: 'Rubik Regular',
-                      color: Color(0xff060607)),
+                      color: Colors.black),
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/signInAs');
+                    Navigator.pushNamed(context, '/signInAsPatient');
                   },
-                  child: const Text(
+                  child: Text(
                     'Sign In',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        decorationColor:
-                        Colors.blue, // Customize the underline color
-                        decorationThickness: 2.0,
-                        fontSize: 17,
+                        fontSize: 18,
                         fontFamily: 'Rubik Medium',
-                        color: Color(0xff3EB9E3)),
+                        color: Colors.cyan[700]),
                   ),
                 ),
                 const SizedBox(
                   height: 40,
-                )
+                ),
               ],
             ),
           ],

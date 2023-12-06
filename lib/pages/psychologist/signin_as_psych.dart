@@ -1,17 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:fyp_project/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fyp_project/Services/auth_service.dart';
 import 'package:fyp_project/common/widgets/custom_textfield.dart';
 import '../psychologist/forgot-passwd_psych.dart';
 
-
 class SignInAsPsych extends StatelessWidget {
   const SignInAsPsych({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return const FormFields();
   }
 }
@@ -45,9 +42,9 @@ class _FormFieldsState extends State<FormFields> {
         context: context,
         email: emailcontroller.text,
         password: passwordcontroller.text,
-        userType: 'psycologist'
-    );
+        userType: 'psycologist');
   }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -78,7 +75,9 @@ class _FormFieldsState extends State<FormFields> {
             ),
             Center(
               child: Image.asset(
-                'assets/signIn.png',height: 200,width: 500,
+                'assets/signIn.png',
+                height: 200,
+                width: 500,
               ),
             ),
             const Column(
@@ -141,50 +140,47 @@ class _FormFieldsState extends State<FormFields> {
                 prefixIconString: 'password',
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                CupertinoButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) =>
-                        const ForgotPasswordPsych(),
-                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                          var begin = 0.0;
-                          var end = 1.0;
-                          var curve = Curves.ease;
-                          var tween = Tween(begin: begin, end: end)
-                              .chain(CurveTween(curve: curve));
-                          return FadeTransition(
-                            opacity: animation.drive(tween),
-                            child: child,
-                          );
-                        },
+          Padding( padding: const EdgeInsets.only(left: 240),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) =>
+                              const ForgotPasswordPsych(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            var begin = 0.0;
+                            var end = 1.0;
+                            var curve = Curves.ease;
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+                            return FadeTransition(
+                              opacity: animation.drive(tween),
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontFamily: 'Rubik Regular',
+                        color: Colors.cyan[700],
                       ),
-                    );
-                  },
-                  child: const Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      fontFamily: 'Rubik Regular',
-                      color: Color(0xFF00ACC1),
                     ),
                   ),
                 ),
-              ],
-            ),
             const SizedBox(
-              height: 35,
+              height: 30,
             ),
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: screenWidth >= 600 ? 100 : 20),
-              child:
-              CustomButton(
+              child: CustomButton(
                   text: 'Sign In',
                   fontsize: 20,
                   onTap: () {
@@ -203,7 +199,7 @@ class _FormFieldsState extends State<FormFields> {
                   "New Member? ",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontFamily: 'Rubik Regular',
                       color: Color(0xff060607)),
                 ),
@@ -213,14 +209,14 @@ class _FormFieldsState extends State<FormFields> {
                         .pushNamed("/createAccAs");
                     // Navigator.pushNamed(context,'/signup');
                   },
-                  child: const Text(
+                  child: Text(
                     "Register now",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontWeight: FontWeight.normal,
                         fontFamily: 'Rubik Medium',
-                        color: Color(0xff3EB9E3)),
+                        color: Colors.cyan[700]),
                   ),
                 ),
               ],

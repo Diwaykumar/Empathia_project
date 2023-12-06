@@ -16,25 +16,23 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: onTap,
-        style: ButtonStyle(
-        minimumSize: MaterialStateProperty.all<Size>(
-        const Size(300, 55),
-    ),
-    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-    RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(12),
-    ),)
+      onPressed: onTap,
+      style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all<Size>(
+            const Size(300, 55),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+          )),
+      child: Text(
+        text,
+        style: TextStyle(fontSize: fontsize),
       ),
-        child: Text(text, style: TextStyle(
-          fontSize: fontsize
-        ),),
     );
   }
 }
-
-
-
 
 // // import 'dart:html';
 // // // import 'dart:ui' as ui;

@@ -1,6 +1,6 @@
-import 'package:fyp_project/pages/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fyp_project/pages/onboarding/data.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -102,9 +102,8 @@ class _OnboardingState extends State<Onboarding> {
                         ),
                         Container(
                             height: MediaQuery.of(context).size.height * 0.5,
-                    alignment: Alignment.center,
-                            child: Image.asset(contentsList[index].image)
-                    ),
+                            alignment: Alignment.center,
+                            child: Image.asset(contentsList[index].image)),
                       ],
                     );
                   },
@@ -123,7 +122,7 @@ class _OnboardingState extends State<Onboarding> {
                           Row(
                             children: List.generate(
                               contentsList.length,
-                                  (index) => buildDot(index, context),
+                              (index) => buildDot(index, context),
                             ),
                           ),
                           // const SizedBox(height: 10),
@@ -170,7 +169,8 @@ class _OnboardingState extends State<Onboarding> {
                               backgroundColor: Colors.white,
                               child: Icon(
                                 Icons.arrow_forward_ios_outlined,
-                                color: contentsList[currentIndex].backgroundColor,
+                                color:
+                                    contentsList[currentIndex].backgroundColor,
                               ),
                             ),
                           ],

@@ -1,9 +1,7 @@
-import 'package:fyp_project/patient/create_account_patient.dart';
-import 'package:fyp_project/psychologist/create_account_psych.dart';
 import 'package:flutter/material.dart';
 
-class CreateAccAs extends StatelessWidget {
-  const CreateAccAs({Key? key}) : super(key: key);
+class SignInAs extends StatelessWidget {
+  const SignInAs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,54 +29,40 @@ class CreateAccAs extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: const Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: EdgeInsets.all(20),
                         child: Icon(
                           Icons.arrow_back_ios_new_outlined,
                           color: Colors.white,
                         ),
                       ),
                     ),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Create account as',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontFamily: 'Rubik Regular',
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
-                const SizedBox(height: 300),
+                const SizedBox(height: 250),
+                const Padding(
+                  padding: EdgeInsets.only(right: 175),
+                  child: Text(
+                    'Sign In As',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontFamily: 'Rubik Regular',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 18),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) =>
-                            const CreateAccountPsych(),
-                        transitionsBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                          return FadeTransition(
-                            opacity: animation,
-                            child: child,
-                          );
-                        },
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/signInAsPsych');
                   },
                   style: ElevatedButton.styleFrom(
                     shadowColor: const Color(0xFF00ACC1),
                     backgroundColor: const Color(0xFFFFFFFF),
                     padding: const EdgeInsets.all(16),
                     alignment: Alignment.center,
-                    fixedSize: const Size(330, 60),
+                    fixedSize: const Size(330, 55),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                   ),
                   child: const Text(
@@ -90,31 +74,19 @@ class CreateAccAs extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 18),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) =>
-                            const CreateAccountPatient(),
-                        transitionsBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                          return FadeTransition(
-                            opacity: animation,
-                            child: child,
-                          );
-                        },
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/signInAsPatient');
                   },
                   style: ElevatedButton.styleFrom(
                     shadowColor: const Color(0xFF00ACC1),
                     backgroundColor: const Color(0xFFFFFFFF),
                     padding: const EdgeInsets.all(16),
                     alignment: Alignment.center,
-                    fixedSize: const Size(330, 60),
+                    fixedSize: const Size(330, 55),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                   ),
                   child: const Text(
