@@ -88,12 +88,13 @@ class AuthService {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
+          await prefs.setString('userType', userType);
           showSnackBar(context, 'Login Succesfull');
           Future.delayed(Duration(seconds: 2), () {
             if (userType == 'patient') {
               // Navigator.pushAndRemoveUntil(context, '/homePatient');
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/SelectModule', (route) => false);
+                  context, '/selectModule', (route) => false);
             } else if (userType == 'psycologist') {
               Navigator.pushNamedAndRemoveUntil(
                   context, '/homePsych', (route) => false);

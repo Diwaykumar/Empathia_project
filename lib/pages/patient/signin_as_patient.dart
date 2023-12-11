@@ -2,6 +2,8 @@ import 'package:fyp_project/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fyp_project/common/widgets/custom_textfield.dart';
 import 'package:fyp_project/Services/auth_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../main.dart';
 import 'forgot_passwd_pat.dart';
 
 class SignInAsPatient extends StatelessWidget {
@@ -43,6 +45,28 @@ class _FormFieldsState extends State<FormFields> {
         email: emailcontroller.text,
         password: passwordcontroller.text,
         userType: 'patient');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadSavedData();
+  }
+
+  void loadSavedData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      emailcontroller.text = prefs.getString("email") ?? "";
+      passwordcontroller.text = prefs.getString("password") ?? "";
+      // username.text = prefs.getString("username") ?? "";
+    });
+  }
+
+  void saveData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("email", emailcontroller.text);
+    prefs.setString("password", passwordcontroller.text);
+    // prefs.setString("username", username.text);
   }
 
   @override
@@ -186,9 +210,13 @@ class _FormFieldsState extends State<FormFields> {
                 child: CustomButton(
                     text: 'Sign In',
                     fontsize: 20,
-                    onTap: () {
+                    onTap: () async {
                       if (_formKey.currentState!.validate()) {
                         signInUser();
+                        var sharedPref = await SharedPreferences.getInstance();
+                        sharedPref.setBool(SplashScreenState.KEYLOGIN, true);
+                        sharedPref.setString('email', emailcontroller.text);
+                        sharedPref.setString('password', passwordcontroller.text);
                       }
                     }),
               ),

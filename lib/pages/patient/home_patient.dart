@@ -10,7 +10,7 @@ class _HomePatientState extends State<HomePatient> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('This is Psycologist Home screen'),
+      child: Text('This is Patient Home screen'),
     );
   }
 }
