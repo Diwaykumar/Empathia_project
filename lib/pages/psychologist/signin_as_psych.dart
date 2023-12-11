@@ -2,10 +2,14 @@ import 'package:fyp_project/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fyp_project/Services/auth_service.dart';
 import 'package:fyp_project/common/widgets/custom_textfield.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../main.dart';
 import '../psychologist/forgot-passwd_psych.dart';
 
 class SignInAsPsych extends StatelessWidget {
   const SignInAsPsych({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,25 +29,48 @@ class _FormFieldsState extends State<FormFields> {
   String errorMessage1 = "";
   String errorMessage2 = "";
 
-  final TextEditingController emailcontroller = TextEditingController();
-  final TextEditingController passwordcontroller = TextEditingController();
+  final TextEditingController _emailcontroller = TextEditingController();
+  final TextEditingController _passwordcontroller = TextEditingController();
 
   final AuthService authService = AuthService();
 
   @override
   void dispose() {
     super.dispose();
-    emailcontroller.dispose();
-    passwordcontroller.dispose();
+   _emailcontroller.dispose();
+   _passwordcontroller.dispose();
   }
 
   void signInUser() {
     authService.signInUser(
         context: context,
-        email: emailcontroller.text,
-        password: passwordcontroller.text,
+        email: _emailcontroller.text,
+        password: _passwordcontroller.text,
         userType: 'psychologist');
   }
+
+  @override
+  void initState() {
+    super.initState();
+    loadSavedData();
+  }
+
+  void loadSavedData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _emailcontroller.text = prefs.getString("email") ?? "";
+      _passwordcontroller.text = prefs.getString("password") ?? "";
+      // username.text = prefs.getString("username") ?? "";
+    });
+  }
+
+  void saveData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("email", _emailcontroller.text);
+    prefs.setString("password", _passwordcontroller.text);
+    // prefs.setString("username", username.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -110,7 +137,7 @@ class _FormFieldsState extends State<FormFields> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomTextField(
-                controller: emailcontroller,
+                controller: _emailcontroller,
                 hintText: 'Email',
                 labeltext: 'Enter your email',
                 prefixIconString: 'email',
@@ -134,7 +161,7 @@ class _FormFieldsState extends State<FormFields> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: CustomTextField(
-                controller: passwordcontroller,
+                controller: _passwordcontroller,
                 hintText: 'Password',
                 labeltext: 'Enter your password',
                 prefixIconString: 'password',
@@ -189,9 +216,13 @@ class _FormFieldsState extends State<FormFields> {
                   horizontal: screenWidth >= 600 ? 100 : 20),
               child: CustomButton(
                   text: 'Sign In',
-                  onTap: () {
+                  onTap: () async {
                     if (_formKey.currentState!.validate()) {
                       signInUser();
+                      var sharedPref = await SharedPreferences.getInstance();
+                      sharedPref.setBool(SplashScreenState.KEYLOGIN, true);
+                      sharedPref.setString('email', _emailcontroller.text);
+                      sharedPref.setString('password', _passwordcontroller.text);
                     }
                   }),
             ),

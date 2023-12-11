@@ -23,7 +23,11 @@ import 'package:fyp_project/pages/onboarding/on_boarding.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Future.delayed(const Duration(seconds: 2));
 
   runApp(MultiProvider(providers:[
     ChangeNotifierProvider(create: (context) => UserProvider(),)
@@ -103,22 +107,22 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade50,
-      body: Stack(
-        children: [
-          // Image.asset(
-          //  'Main.png',
-          //  width: 500,
-          //  fit: BoxFit.cover,
-          // ),
-          Center(
-            child: Image.asset(
-              'empathia.png',
-              fit: BoxFit.cover,
-            ),
-          ),
-        ],
-      ),
+      // backgroundColor: Colors.blue.shade50,
+      // body: Stack(
+      //   children: [
+      //     // Image.asset(
+      //     //  'Main.png',
+      //     //  width: 500,
+      //     //  fit: BoxFit.cover,
+      //     // ),
+      //     Center(
+      //       child: Image.asset(
+      //         'empathia.png',
+      //         fit: BoxFit.cover,
+      //       ),
+      //     ),
+      //   ],
+      // ),
     );
   }
 
@@ -129,7 +133,7 @@ class SplashScreenState extends State<SplashScreen> {
         'userType'); // Fetch userType from shared preferences
 
 
-    Future.delayed(Duration(seconds: 2), () {
+
       if (isLoggedIn != null) {
         if (isLoggedIn) {
           if (userType == 'patient') {
@@ -143,7 +147,6 @@ class SplashScreenState extends State<SplashScreen> {
       } else {
         Navigator.pushReplacementNamed(context, "/onBoarding");
       }
-    });
   }
 }
 
