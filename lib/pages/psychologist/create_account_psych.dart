@@ -77,7 +77,7 @@ class _RegistrationState extends State<Registration> {
               ],
             ),
             const SizedBox(
-              height: 5,
+              height: 5.0,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -109,10 +109,10 @@ class _RegistrationState extends State<Registration> {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 21),
               child: CustomText(
-                  text: 'Full Name',
-                  Fontsize: 18,
-                  Weight: FontWeight.normal,
-                  textcolor: Colors.black),
+                  text: 'User Name',
+                  fontSize: 18,
+                  weight: FontWeight.normal,
+                  textColor: Colors.black),
             ),
             const SizedBox(
               height: 2,
@@ -131,9 +131,9 @@ class _RegistrationState extends State<Registration> {
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 21),
               child: CustomText(
                   text: 'Email',
-                  Fontsize: 18,
-                  Weight: FontWeight.normal,
-                  textcolor: Colors.black),
+                  fontSize: 18,
+                  weight: FontWeight.normal,
+                  textColor: Colors.black),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -148,9 +148,9 @@ class _RegistrationState extends State<Registration> {
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 21),
               child: CustomText(
                   text: 'Password',
-                  Fontsize: 18,
-                  Weight: FontWeight.normal,
-                  textcolor: Colors.black),
+                  fontSize: 18,
+                  weight: FontWeight.normal,
+                  textColor: Colors.black),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -165,9 +165,9 @@ class _RegistrationState extends State<Registration> {
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 21),
               child: CustomText(
                   text: 'Phone Number',
-                  Fontsize: 18,
-                  Weight: FontWeight.normal,
-                  textcolor: Colors.black),
+                  fontSize: 18,
+                  weight: FontWeight.normal,
+                  textColor: Colors.black),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

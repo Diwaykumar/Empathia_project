@@ -5,12 +5,12 @@ import 'package:fyp_project/Services/auth_service.dart';
 import 'package:fyp_project/pages/onboarding/create_acc.dart';
 import 'package:fyp_project/pages/onboarding/create_acc_as.dart';
 import 'package:fyp_project/pages/onboarding/sign_in_as.dart';
+import 'package:fyp_project/pages/patient/Home/home_patient.dart';
 import 'package:fyp_project/pages/patient/Module_select.dart';
 import 'package:fyp_project/pages/patient/create_account_patient.dart';
 import 'package:fyp_project/pages/patient/forgot_passd_pat_2.dart';
 import 'package:fyp_project/pages/patient/forgot_passwd_pat.dart';
 import 'package:fyp_project/pages/patient/forgot_passwd_pat_3.dart';
-import 'package:fyp_project/pages/patient/home_patient.dart';
 import 'package:fyp_project/pages/patient/signin_as_patient.dart';
 import 'package:fyp_project/providers/user_provider.dart';
 import 'package:fyp_project/pages/psychologist/create_account_psych.dart';
@@ -25,15 +25,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 Future main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
 
   await Future.delayed(const Duration(seconds: 2));
   FlutterNativeSplash.remove();
 
-  runApp(MultiProvider(providers:[
-    ChangeNotifierProvider(create: (context) => UserProvider(),)
-  ],child: const MyApp()));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+    )
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -44,9 +45,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   final AuthService authService = AuthService();
-
 
   // This widget is the root of your application.
   @override
@@ -80,75 +79,44 @@ class _MyAppState extends State<MyApp> {
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
-
-
-
-
   @override
   State<SplashScreen> createState() => SplashScreenState();
 }
 
-
-
 class SplashScreenState extends State<SplashScreen> {
-
-
   final AuthService authService = AuthService();
 
   static const String KEYLOGIN = "login";
 
-
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
-      whereToGo();
-    });
+    whereToGo();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: Colors.blue.shade50,
-      // body: Stack(
-      //   children: [
-      //     // Image.asset(
-      //     //  'Main.png',
-      //     //  width: 500,
-      //     //  fit: BoxFit.cover,
-      //     // ),
-      //     Center(
-      //       child: Image.asset(
-      //         'empathia.png',
-      //         fit: BoxFit.cover,
-      //       ),
-      //     ),
-      //   ],
-      // ),
-    );
+    return const Scaffold();
   }
 
   void whereToGo() async {
     var sharedPref = await SharedPreferences.getInstance();
     var isLoggedIn = sharedPref.getBool(KEYLOGIN);
-    var userType = sharedPref.getString(
-        'userType'); // Fetch userType from shared preferences
+    var userType = sharedPref
+        .getString('userType'); // Fetch userType from shared preferences
 
-
-
-      if (isLoggedIn != null) {
-        if (isLoggedIn) {
-          if (userType == 'patient') {
-            Navigator.pushReplacementNamed(context, "/homePatient");
-          } else if (userType == 'psychologist') {
-            Navigator.pushReplacementNamed(context, "/homePsych");
-          }
-        } else {
-          Navigator.pushReplacementNamed(context, "/onBoarding");
+    if (isLoggedIn != null) {
+      if (isLoggedIn) {
+        if (userType == 'patient') {
+          Navigator.pushReplacementNamed(context, "/homePatient");
+        } else if (userType == 'psychologist') {
+          Navigator.pushReplacementNamed(context, "/homePsych");
         }
       } else {
         Navigator.pushReplacementNamed(context, "/onBoarding");
       }
+    } else {
+      Navigator.pushReplacementNamed(context, "/onBoarding");
+    }
   }
 }
-

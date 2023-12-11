@@ -75,6 +75,7 @@ class _FormFieldsState extends State<FormFields> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black12,
         body: Form(
           key: _formKey,
           child: ListView(
@@ -86,11 +87,11 @@ class _FormFieldsState extends State<FormFields> {
                     onTap: () {
                       Navigator.of(context).pop();
                     },
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 20, left: 20),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 20, left: 20),
                       child: Icon(
                         Icons.arrow_back_ios_new_outlined,
-                        color: Color(0xFF0097A7),
+                        color: Colors.cyan[600],
                       ),
                     ),
                   ),
@@ -146,7 +147,7 @@ class _FormFieldsState extends State<FormFields> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 40, left: 21, bottom: 12),
+                    padding: EdgeInsets.only(top: 20, left: 21, bottom: 12),
                     child: Text(
                       'Password',
                       style: TextStyle(
@@ -191,12 +192,12 @@ class _FormFieldsState extends State<FormFields> {
                     );
                   },
                   child: Text(
-                    'Forgot Password?',
+                    'Forgot Password',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontSize: 18,
                       fontFamily: 'Rubik Regular',
-                      color: Colors.cyan[700],
+                      color: Colors.cyan[600],
                     ),
                   ),
                 ),
@@ -234,6 +235,9 @@ class _FormFieldsState extends State<FormFields> {
                         fontFamily: 'Rubik Regular',
                         color: Color(0xff060607)),
                   ),
+                  const SizedBox(
+                    width: 4.0,
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context, rootNavigator: true)
@@ -246,8 +250,8 @@ class _FormFieldsState extends State<FormFields> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.normal,
-                          fontFamily: 'Rubik Medium',
-                          color: Colors.cyan[700]),
+                          fontFamily: 'Rubik Regular',
+                          color: Colors.cyan[600]),
                     ),
                   ),
                 ],

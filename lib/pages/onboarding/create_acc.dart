@@ -23,25 +23,8 @@ class CreateAccount extends StatelessWidget {
             ),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Icon(
-                        Icons.arrow_back_ios_new_outlined,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 300),
               CustomButton(
                   text: 'Create Account',
                   onTap: () {

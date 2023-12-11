@@ -68,15 +68,15 @@ class CustomTextField extends StatelessWidget {
 
 class CustomText extends StatelessWidget {
   final String text;
-  final double Fontsize;
-  final FontWeight Weight;
-  final Color textcolor;
+  final double fontSize;
+  final FontWeight weight;
+  final Color textColor;
   const CustomText(
       {super.key,
       required this.text,
-      required this.Fontsize,
-      required this.Weight,
-      required this.textcolor});
+      required this.fontSize,
+      required this.weight,
+      required this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -86,9 +86,9 @@ class CustomText extends StatelessWidget {
           text,
           style: TextStyle(
               fontFamily: 'Rubik Medium',
-              fontSize: Fontsize,
-              fontWeight: Weight,
-              color: textcolor),
+              fontSize: fontSize,
+              fontWeight: weight,
+              color: textColor),
         ),
       ],
     );
