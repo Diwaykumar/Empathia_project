@@ -5,7 +5,7 @@ import 'package:fyp_project/Services/auth_service.dart';
 import 'package:fyp_project/pages/onboarding/create_acc.dart';
 import 'package:fyp_project/pages/onboarding/create_acc_as.dart';
 import 'package:fyp_project/pages/onboarding/sign_in_as.dart';
-//import 'package:fyp_project/pages/patient/Module_select.dart';
+import 'package:fyp_project/pages/patient/Module_select.dart';
 import 'package:fyp_project/pages/patient/create_account_patient.dart';
 import 'package:fyp_project/pages/patient/forgot_passd_pat_2.dart';
 import 'package:fyp_project/pages/patient/forgot_passwd_pat.dart';
@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
         '/forgotPasswdPsych': (context) => const ForgotPasswordPsych(),
         '/forgotPasswdPsych2': (context) => const ForgotPasswdPsych2(),
         '/forgotPasswdPsych3': (context) => const ForgotPasswdPsych3(),
-      //  '/selectModule': (context) => const selectModule(),
+        '/selectModule': (context) => const selectModule(),
       },
     );
   }
@@ -95,7 +95,7 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 2), () {
       whereToGo();
     });
   }
@@ -129,7 +129,7 @@ class SplashScreenState extends State<SplashScreen> {
         'userType'); // Fetch userType from shared preferences
 
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 2), () {
       if (isLoggedIn != null) {
         if (isLoggedIn) {
           if (userType == 'patient') {
