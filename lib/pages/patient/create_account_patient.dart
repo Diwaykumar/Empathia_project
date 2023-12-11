@@ -50,8 +50,8 @@ class _RegistrationState extends State<Registration> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
+      backgroundColor: Colors.black12,
       body: Form(
         // autovalidateMode: AutovalidateMode.always,
         key: _signUpFormKey,
@@ -68,7 +68,7 @@ class _RegistrationState extends State<Registration> {
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
                       Icons.arrow_back_ios_new_outlined,
-                      color: Colors.cyan.shade700,
+                      color: Colors.cyan.shade600,
                     ),
                   ),
                 ),
@@ -77,27 +77,29 @@ class _RegistrationState extends State<Registration> {
             const SizedBox(
               height: 5,
             ),
-            Center(
-              child: Image.asset(
-                'assets/signUp.png',
-                height: 200,
-                width: 500,
-              ),
-            ),
-            Center(
-              child: Text(
-                'Get Started',
-                style: TextStyle(
-                    fontSize: 26,
-                    fontFamily: 'Rubik Medium',
-                    color: Colors.cyan[700]),
-              ),
-            ),
-            const Center(
-              child: Text(
-                'By creating a free account',
-                style: TextStyle(fontSize: 20, color: Colors.black54),
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/signUp.png',
+                  height: 200,
+                  width: 500,
+                ),
+                Text(
+                  'Get Started',
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontFamily: 'Rubik Regular',
+                      color: Colors.cyan[600]),
+                ),
+                const Text(
+                  'By creating a free account',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Rubik Regular',
+                      color: Colors.black),
+                ),
+              ],
             ),
             const SizedBox(
               height: 20,
@@ -119,7 +121,7 @@ class _RegistrationState extends State<Registration> {
               child: CustomTextField(
                 controller: usernamecontroller,
                 hintText: 'username',
-                labeltext: 'Enter your Username',
+                labeltext: 'Enter your username',
                 prefixIconString: 'Name',
               ),
             ),
@@ -129,7 +131,7 @@ class _RegistrationState extends State<Registration> {
                   text: 'Email',
                   Fontsize: 18,
                   Weight: FontWeight.normal,
-                  textcolor: Color(0xff060607)),
+                  textcolor: Colors.black),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -146,14 +148,14 @@ class _RegistrationState extends State<Registration> {
                   text: 'Password',
                   Fontsize: 18,
                   Weight: FontWeight.normal,
-                  textcolor: Color(0xff060607)),
+                  textcolor: Colors.black),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomTextField(
                 controller: passwordcontroller,
                 hintText: 'password',
-                labeltext: 'Enter your Password',
+                labeltext: 'Enter your password',
                 prefixIconString: 'password',
               ),
             ),
@@ -170,7 +172,7 @@ class _RegistrationState extends State<Registration> {
               child: CustomTextField(
                 controller: phonecontroller,
                 hintText: 'Phone',
-                labeltext: 'Enter your Number',
+                labeltext: 'Enter your number',
                 prefixIconString: 'phone',
               ),
             ),
@@ -182,15 +184,11 @@ class _RegistrationState extends State<Registration> {
                   horizontal: screenWidth >= 600 ? 100 : 20),
               child: CustomButton(
                   text: "Register",
-                  fontsize: 20,
                   onTap: () {
                     if (_signUpFormKey.currentState!.validate()) {
                       signUpUser();
                     }
                   }),
-            ),
-            const SizedBox(
-              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -204,6 +202,9 @@ class _RegistrationState extends State<Registration> {
                       fontFamily: 'Rubik Regular',
                       color: Colors.black),
                 ),
+                const SizedBox(
+                  width: 4.0,
+                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, '/signInAsPatient');
@@ -213,8 +214,8 @@ class _RegistrationState extends State<Registration> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 18,
-                        fontFamily: 'Rubik Medium',
-                        color: Colors.cyan[700]),
+                        fontFamily: 'Rubik Regular',
+                        color: Colors.cyan[600]),
                   ),
                 ),
                 const SizedBox(

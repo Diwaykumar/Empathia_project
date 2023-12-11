@@ -15,6 +15,7 @@ class _ForgotPasswdPatient2State extends State<ForgotPasswdPatient2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black12,
       body: SafeArea(
         child: ListView(
           children: [
@@ -25,11 +26,11 @@ class _ForgotPasswdPatient2State extends State<ForgotPasswdPatient2> {
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.only(top: 20, left: 20),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20, left: 20),
                     child: Icon(
                       Icons.arrow_back_ios_new_outlined,
-                      color: Color(0xFF0097A7),
+                      color: Colors.cyan[600],
                     ),
                   ),
                 ),
@@ -80,9 +81,7 @@ class _ForgotPasswdPatient2State extends State<ForgotPasswdPatient2> {
                         children: [
                           CustomButton(
                             text: 'Verify',
-                            fontsize: 20,
                             onTap: () {
-                              print('OTP: ${_otpController.text}');
                               Navigator.of(context, rootNavigator: true)
                                   .pushNamed("/forgotPasswdPatient3");
                               // Verify OTP functionality here
@@ -91,10 +90,7 @@ class _ForgotPasswdPatient2State extends State<ForgotPasswdPatient2> {
                           const SizedBox(height: 10),
                           CustomButton(
                             text: 'Resend',
-                            fontsize: 20,
                             onTap: () {
-                              print('Resend OTP');
-                              // Resend OTP functionality here
                             },
                           ),
                         ],

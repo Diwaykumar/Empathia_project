@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_project/common/widgets/custom_button.dart';
 import '../patient/create_account_patient.dart';
 import '../psychologist/create_account_psych.dart';
 
@@ -40,60 +41,46 @@ class CreateAccAs extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                    height: 250
-                ),
+                const SizedBox(height: 250),
                 const Padding(
-                  padding: EdgeInsets.only(right: 90),
-                  child: Text(
-                    'Create Account As',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Rubik Regular',
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                    height: 18),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) =>
-                            const CreateAccountPsych(),
-                        transitionsBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                          return FadeTransition(
-                            opacity: animation,
-                            child: child,
-                          );
-                        },
+                  padding: EdgeInsets.only(left: 60),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Create Account As',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontFamily: 'Rubik Regular',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                        ),
                       ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shadowColor: const Color(0xFF00ACC1),
-                    backgroundColor: const Color(0xFFFFFFFF),
-                    padding: const EdgeInsets.all(16),
-                    alignment: Alignment.center,
-                    fixedSize: const Size(330, 55),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  child: const Text(
-                    'Psychologist',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Rubik Regular',
-                      color: Color(0xFF00ACC1),
-                    ),
+                    ],
                   ),
                 ),
+                const SizedBox(height: 5),
+                CustomButton(
+                    text: 'Psychologist',
+                    onTap: () {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    const CreateAccountPsych(),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            }),
+                      );
+                    }),
                 const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
+                CustomButton(
+                  text: 'Patient',
+                  onTap: () {
                     Navigator.of(context).push(
                       PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) =>
@@ -108,24 +95,6 @@ class CreateAccAs extends StatelessWidget {
                       ),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    shadowColor: const Color(0xFF00ACC1),
-                    backgroundColor: const Color(0xFFFFFFFF),
-                    padding: const EdgeInsets.all(16),
-                    alignment: Alignment.center,
-                    fixedSize: const Size(330, 55),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  child: const Text(
-                    'Patient',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Rubik Regular',
-                      color: Color(0xFF00ACC1),
-                    ),
-                  ),
                 ),
               ],
             ),

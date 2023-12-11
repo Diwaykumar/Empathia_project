@@ -1,23 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:fyp_project/Services/auth_service.dart';
-import 'package:fyp_project/pages/create_acc.dart';
-import 'package:fyp_project/pages/create_acc_as.dart';
-import 'package:fyp_project/pages/sign_in_as.dart';
-import 'package:fyp_project/patient/create_account_patient.dart';
-import 'package:fyp_project/patient/forgot_passd_pat_2.dart';
-import 'package:fyp_project/patient/forgot_passwd_pat.dart';
-import 'package:fyp_project/patient/forgot_passwd_pat_3.dart';
-import 'package:fyp_project/patient/home_patient.dart';
-import 'package:fyp_project/patient/signin_as_patient.dart';
+import 'package:fyp_project/pages/onboarding/create_acc.dart';
+import 'package:fyp_project/pages/onboarding/create_acc_as.dart';
+import 'package:fyp_project/pages/onboarding/sign_in_as.dart';
+//import 'package:fyp_project/pages/patient/Module_select.dart';
+import 'package:fyp_project/pages/patient/create_account_patient.dart';
+import 'package:fyp_project/pages/patient/forgot_passd_pat_2.dart';
+import 'package:fyp_project/pages/patient/forgot_passwd_pat.dart';
+import 'package:fyp_project/pages/patient/forgot_passwd_pat_3.dart';
+import 'package:fyp_project/pages/patient/home_patient.dart';
+import 'package:fyp_project/pages/patient/signin_as_patient.dart';
 import 'package:fyp_project/providers/user_provider.dart';
-import 'package:fyp_project/psychologist/create_account_psych.dart';
-import 'package:fyp_project/psychologist/forgot-passwd_psych.dart';
-import 'package:fyp_project/psychologist/forgot_passwd_psych2.dart';
-import 'package:fyp_project/psychologist/forgot_passwd_psych3.dart';
-import 'package:fyp_project/psychologist/home_psych.dart';
-import 'package:fyp_project/psychologist/signin_as_psych.dart';
-import 'pages/on_boarding.dart';
+import 'package:fyp_project/pages/psychologist/create_account_psych.dart';
+import 'package:fyp_project/pages/psychologist/forgot-passwd_psych.dart';
+import 'package:fyp_project/pages/psychologist/forgot_passwd_psych2.dart';
+import 'package:fyp_project/pages/psychologist/forgot_passwd_psych3.dart';
+import 'package:fyp_project/pages/psychologist/home_psych.dart';
+import 'package:fyp_project/pages/psychologist/signin_as_psych.dart';
+import 'package:fyp_project/pages/onboarding/on_boarding.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
 
@@ -37,11 +41,7 @@ class _MyAppState extends State<MyApp> {
 
   final AuthService authService = AuthService();
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -50,6 +50,7 @@ class _MyAppState extends State<MyApp> {
       home: const SplashScreen(),
       routes: <String, WidgetBuilder>{
         '/createAcc': (context) => const CreateAccount(),
+        '/onBoarding': (context) => const Onboarding(),
         '/createAccAs': (context) => const CreateAccAs(),
         '/signInAs': (context) => const SignInAs(),
         '/createAccAsPsych': (context) => const CreateAccountPsych(),
@@ -64,27 +65,38 @@ class _MyAppState extends State<MyApp> {
         '/forgotPasswdPsych': (context) => const ForgotPasswordPsych(),
         '/forgotPasswdPsych2': (context) => const ForgotPasswdPsych2(),
         '/forgotPasswdPsych3': (context) => const ForgotPasswdPsych3(),
+      //  '/selectModule': (context) => const selectModule(),
       },
     );
   }
 }
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({Key? key}) : super(key: key);
+
+
+
+
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreen> createState() => SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+
+
+class SplashScreenState extends State<SplashScreen> {
+
+
+  final AuthService authService = AuthService();
+
+  static const String KEYLOGIN = "login";
+
+
   @override
   void initState() {
     super.initState();
-    // Add a delay of 3 seconds and then navigate to the next screen
-    Future.delayed(const Duration(seconds: 1), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const Onboarding()),
-      );
+    Future.delayed(const Duration(seconds: 2), () {
+      whereToGo();
     });
   }
 
@@ -109,4 +121,29 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
+
+  void whereToGo() async {
+    var sharedPref = await SharedPreferences.getInstance();
+    var isLoggedIn = sharedPref.getBool(KEYLOGIN);
+    var userType = sharedPref.getString(
+        'userType'); // Fetch userType from shared preferences
+
+
+    Future.delayed(const Duration(seconds: 2), () {
+      if (isLoggedIn != null) {
+        if (isLoggedIn) {
+          if (userType == 'patient') {
+            Navigator.pushReplacementNamed(context, "/homePatient");
+          } else if (userType == 'psychologist') {
+            Navigator.pushReplacementNamed(context, "/homePsych");
+          }
+        } else {
+          Navigator.pushReplacementNamed(context, "/onBoarding");
+        }
+      } else {
+        Navigator.pushReplacementNamed(context, "/onBoarding");
+      }
+    });
+  }
 }
+

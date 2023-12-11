@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_project/pages/patient/signin_as_patient.dart';
+import 'package:fyp_project/pages/psychologist/signin_as_psych.dart';
+
+import '../../common/widgets/custom_button.dart';
 
 class SignInAs extends StatelessWidget {
   const SignInAs({Key? key}) : super(key: key);
@@ -40,63 +44,59 @@ class SignInAs extends StatelessWidget {
                 ),
                 const SizedBox(height: 250),
                 const Padding(
-                  padding: EdgeInsets.only(right: 175),
-                  child: Text(
-                    'Sign In As',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontFamily: 'Rubik Regular',
-                      color: Colors.white,
-                    ),
+                  padding: EdgeInsets.only(left: 60),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'SignIn As',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontFamily: 'Rubik Regular',
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 18),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/signInAsPsych');
+                const SizedBox(height: 5),
+                CustomButton(
+                  text: 'Psychologist',
+                  onTap: () {
+                    Navigator.of(context).push(
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            const SignInAsPsych(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          );
+                        },
+                      ),
+                    );
                   },
-                  style: ElevatedButton.styleFrom(
-                    shadowColor: const Color(0xFF00ACC1),
-                    backgroundColor: const Color(0xFFFFFFFF),
-                    padding: const EdgeInsets.all(16),
-                    alignment: Alignment.center,
-                    fixedSize: const Size(330, 55),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  child: const Text(
-                    'Psychologist',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Rubik Regular',
-                      color: Color(0xFF00ACC1),
-                    ),
-                  ),
                 ),
                 const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/signInAsPatient');
+                CustomButton(
+                  text: 'Patient',
+                  onTap: () {
+                    Navigator.of(context).push(
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            const SignInAsPatient(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          );
+                        },
+                      ),
+                    );
                   },
-                  style: ElevatedButton.styleFrom(
-                    shadowColor: const Color(0xFF00ACC1),
-                    backgroundColor: const Color(0xFFFFFFFF),
-                    padding: const EdgeInsets.all(16),
-                    alignment: Alignment.center,
-                    fixedSize: const Size(330, 55),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  child: const Text(
-                    'Patient',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Rubik Regular',
-                      color: Color(0xFF00ACC1),
-                    ),
-                  ),
                 ),
               ],
             ),

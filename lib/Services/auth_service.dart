@@ -50,7 +50,7 @@ class AuthService {
           Future.delayed(Duration(seconds: 2), () {
             if (userType == 'patient') {
               Navigator.pushNamed(context, '/signInAsPatient');
-            } else if (userType == 'psycologist') {
+            } else if (userType == 'psychologist') {
               Navigator.pushNamed(context, '/signInAsPsych');
             }
           });
@@ -88,13 +88,14 @@ class AuthService {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
-          showSnackBar(context, 'Login Succesfull');
+          await prefs.setString('userType', userType);
+          showSnackBar(context, 'Login Successfully');
           Future.delayed(Duration(seconds: 2), () {
             if (userType == 'patient') {
               // Navigator.pushAndRemoveUntil(context, '/homePatient');
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/SelectModule', (route) => false);
-            } else if (userType == 'psycologist') {
+                  context, '/selectModule', (route) => false);
+            } else if (userType == 'psychologist') {
               Navigator.pushNamedAndRemoveUntil(
                   context, '/homePsych', (route) => false);
             }

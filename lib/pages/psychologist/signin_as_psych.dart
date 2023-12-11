@@ -42,13 +42,14 @@ class _FormFieldsState extends State<FormFields> {
         context: context,
         email: emailcontroller.text,
         password: passwordcontroller.text,
-        userType: 'psycologist');
+        userType: 'psychologist');
   }
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
+      backgroundColor: Colors.black12,
       body: Form(
         key: _formKey,
         child: ListView(
@@ -60,35 +61,34 @@ class _FormFieldsState extends State<FormFields> {
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.only(top: 20, left: 20),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20, left: 20),
                     child: Icon(
                       Icons.arrow_back_ios_new_outlined,
-                      color: Color(0xFF0097A7),
+                      color: Colors.cyan[600],
                     ),
                   ),
                 ),
               ],
             ),
             const SizedBox(
-              height: 15,
+              height: 5,
             ),
-            Center(
-              child: Image.asset(
-                'assets/signIn.png',
-                height: 200,
-                width: 500,
-              ),
-            ),
-            const Column(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset(
+                    'assets/signIn.png',
+                    height: 200,
+                    width: 500,
+                  ),
                 Text(
                   'Welcome back',
-                  style: TextStyle(fontSize: 28, color: Colors.black),
+                  style: TextStyle(fontSize: 28,fontFamily: 'Rubik Regular', color: Colors.cyan[600]),
                 ),
-                Text(
+                const Text(
                   'Sign in to access your account',
-                  style: TextStyle(fontSize: 20, color: Colors.black54),
+                  style: TextStyle(fontSize: 20,fontFamily: 'Rubik Regular', color: Colors.black),
                 ),
               ],
             ),
@@ -102,7 +102,7 @@ class _FormFieldsState extends State<FormFields> {
                     style: TextStyle(
                         fontSize: 18,
                         fontFamily: 'Rubik Medium',
-                        color: Color(0xff060607)),
+                        color: Colors.black),
                   ),
                 )
               ],
@@ -112,7 +112,7 @@ class _FormFieldsState extends State<FormFields> {
               child: CustomTextField(
                 controller: emailcontroller,
                 hintText: 'Email',
-                labeltext: 'Enter Your Email',
+                labeltext: 'Enter your email',
                 prefixIconString: 'email',
               ),
             ),
@@ -120,34 +120,39 @@ class _FormFieldsState extends State<FormFields> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 40, left: 21, bottom: 12),
+                  padding: EdgeInsets.only(top: 20.0, left: 21.0, bottom: 12.0),
                   child: Text(
                     'Password',
                     style: TextStyle(
                         fontSize: 18,
                         fontFamily: 'Rubik Medium',
-                        color: Color(0xff060607)),
+                        color:Colors.black),
                   ),
                 )
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: CustomTextField(
                 controller: passwordcontroller,
                 hintText: 'Password',
-                labeltext: 'Enter Your Password',
+                labeltext: 'Enter your password',
                 prefixIconString: 'password',
               ),
             ),
-          Padding( padding: const EdgeInsets.only(left: 240),
-                  child: GestureDetector(
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) =>
-                              const ForgotPasswordPsych(),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const ForgotPasswordPsych(),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             var begin = 0.0;
@@ -164,37 +169,36 @@ class _FormFieldsState extends State<FormFields> {
                       );
                     },
                     child: Text(
-                      'Forgot Password?',
+                      'Forgot Password',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.normal,
                         fontSize: 18,
                         fontFamily: 'Rubik Regular',
-                        color: Colors.cyan[700],
+                        color: Colors.cyan[600],
                       ),
                     ),
                   ),
-                ),
+                ],
+              ),
+            ),
             const SizedBox(
-              height: 30,
+              height: 35,
             ),
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: screenWidth >= 600 ? 100 : 20),
               child: CustomButton(
                   text: 'Sign In',
-                  fontsize: 20,
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
                       signInUser();
                     }
                   }),
             ),
+            const SizedBox(height: 5.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 35,
-                ),
                 const Text(
                   "New Member? ",
                   textAlign: TextAlign.center,
@@ -202,6 +206,9 @@ class _FormFieldsState extends State<FormFields> {
                       fontSize: 18,
                       fontFamily: 'Rubik Regular',
                       color: Color(0xff060607)),
+                ),
+                const SizedBox(
+                  width: 4.0,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -215,8 +222,8 @@ class _FormFieldsState extends State<FormFields> {
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.normal,
-                        fontFamily: 'Rubik Medium',
-                        color: Colors.cyan[700]),
+                        fontFamily: 'Rubik Regular',
+                        color: Colors.cyan[600]),
                   ),
                 ),
               ],

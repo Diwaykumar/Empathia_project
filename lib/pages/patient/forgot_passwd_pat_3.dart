@@ -19,6 +19,7 @@ class _ForgotPasswdPatient3State extends State<ForgotPasswdPatient3> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Colors.black12,
       body: Form(
         key: _formKey,
         child: ListView(
@@ -30,11 +31,11 @@ class _ForgotPasswdPatient3State extends State<ForgotPasswdPatient3> {
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.only(top: 20, left: 20),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20, left: 20),
                     child: Icon(
                       Icons.arrow_back_ios_new_outlined,
-                      color: Color(0xFF0097A7),
+                      color: Colors.cyan[600],
                     ),
                   ),
                 ),
@@ -48,9 +49,9 @@ class _ForgotPasswdPatient3State extends State<ForgotPasswdPatient3> {
                 width: 500,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: const Text(
+            const Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: Text(
                 'New password',
                 style: TextStyle(
                   fontSize: 18,
@@ -97,7 +98,6 @@ class _ForgotPasswdPatient3State extends State<ForgotPasswdPatient3> {
                     ),
                     child: CustomButton(
                       text: 'Submit',
-                      fontsize: 20,
                       onTap: () {
                         Navigator.of(context, rootNavigator: true)
                             .pushNamed('/homePatient');

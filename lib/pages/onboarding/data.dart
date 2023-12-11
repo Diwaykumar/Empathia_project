@@ -16,33 +16,30 @@ class UnboardingContent {
 
 List<UnboardingContent> contentsList = [
   UnboardingContent(
-      image: "assets/doc1.png",
+      image: "assets/psych.png",
       title: 'Get Instant Consult From Your Preferred Psychologist',
-      description: 'Now you can speak to your preferred psychologist within 1 minute through chat/voice call/video call',
+      description: 'Speak to your preferred psychologist within 1 minute through chat, voice call, video call',
       backgroundColor: Colors.blue.shade300
   ),
   UnboardingContent(
 
-      image: "assets/doc2.png",
+      image: "assets/article.png",
       title: 'Find Trustworthy Health Information',
-      description: 'You will get the most accurate information about any disorder from top-class psychologists. Read top trending articles and share with your friends',
-      // backgroundColor: Colors.cyan.shade600
+      description: 'Get the most accurate information about any disorder from top-class psychologists.\nRead and share top trending articles with your friends',
       backgroundColor: Colors.blue.shade300
 
   ),
   UnboardingContent(
-      image: "assets/doc3.png",
+      image: "assets/appointment.png",
       title: 'Easy Appointment Scheduling And Fast Payment',
       description: 'You can book appointment from anywhere quickly at your finger tips and get connected',
       backgroundColor: Colors.blue.shade300
 
-      // backgroundColor: Colors.cyan.shade900
   ),
   UnboardingContent(
       image: "assets/community.png",
-      title: 'Join Community \nAnd Stay Connected',
-      description: 'Share you experiences and bring a change within yourself and round our enviornment',
-      // backgroundColor: Colors.cyan.shade900
+      title: 'Join Community And Stay Connected',
+      description: 'Share you experiences and bring a change within yourself and round our environment',
       backgroundColor: Colors.blue.shade300
   ),
 ];

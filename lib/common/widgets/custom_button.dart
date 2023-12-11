@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
-  final Color? color;
   final double fontsize;
   const CustomButton({
     Key? key,
     required this.text,
     required this.onTap,
-    this.color,
-    this.fontsize = 16.0,
+    this.fontsize = 20.0,
   }) : super(key: key);
 
   @override
@@ -18,17 +16,21 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTap,
       style: ButtonStyle(
-          minimumSize: MaterialStateProperty.all<Size>(
-            const Size(300, 55),
+        minimumSize: MaterialStateProperty.all<Size>(
+          const Size(300, 55),
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
           ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-            ),
-          )),
+        ),
+      ),
       child: Text(
         text,
-        style: TextStyle(fontSize: fontsize),
+        style: TextStyle(
+            fontSize: fontsize,
+            color: Colors.cyan[600],
+            fontFamily: 'Rubik Regular'),
       ),
     );
   }

@@ -19,6 +19,7 @@ class _ForgotPasswordPatientState extends State<ForgotPasswordPatient> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.black12,
       body: SafeArea(
         child: Form(
           key: _formKey,
@@ -31,11 +32,11 @@ class _ForgotPasswordPatientState extends State<ForgotPasswordPatient> {
                     onTap: () {
                       Navigator.of(context).pop();
                     },
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 20, left: 20),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 20, left: 20),
                       child: Icon(
                         Icons.arrow_back_ios_new_outlined,
-                        color: Color(0xFF0097A7),
+                        color: Colors.cyan[600],
                       ),
                     ),
                   ),
@@ -84,7 +85,6 @@ class _ForgotPasswordPatientState extends State<ForgotPasswordPatient> {
                         ),
                         child: CustomButton(
                           text: 'Continue',
-                          fontsize: 20,
                           onTap: () {
                             Navigator.of(context, rootNavigator: true)
                                 .pushNamed('/forgotPasswdPatient2');

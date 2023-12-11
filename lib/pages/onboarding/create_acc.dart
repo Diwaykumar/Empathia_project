@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_project/common/widgets/custom_button.dart';
 import 'package:fyp_project/pages/onboarding/sign_in_as.dart';
 
 import 'create_acc_as.dart';
@@ -41,54 +42,35 @@ class CreateAccount extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 300),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    PageRouteBuilder(
-                      pageBuilder: (context, animation, secondaryAnimation) =>
-                          const CreateAccAs(),
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
-                        return FadeTransition(
-                          opacity: animation,
-                          child: child,
-                        );
-                      },
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  shadowColor: const Color(0xFF00ACC1),
-                  backgroundColor: const Color(0xFFFFFFFF),
-                  padding: const EdgeInsets.all(16),
-                  alignment: Alignment.center,
-                  fixedSize: const Size(330, 55),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                child: const Text(
-                  'Create Account',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'Rubik Regular',
-                    color: Color(0xFF00ACC1),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 18),
+              CustomButton(
+                  text: 'Create Account',
+                  onTap: () {
+                    Navigator.of(context).push(
+                      PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const CreateAccAs(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            return FadeTransition(
+                              opacity: animation,
+                              child: child,
+                            );
+                          }),
+                    );
+                  }),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
                     "Already a member?",
                     style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Rubik Regular',
-                      color: Colors.white,
-                    ),
+                        fontSize: 18,
+                        fontFamily: 'Rubik Regular',
+                        color: Colors.white),
                   ),
-                  const SizedBox(width: 5),
+                  const SizedBox(width: 4.0),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -110,11 +92,10 @@ class CreateAccount extends StatelessWidget {
                     child: const Text(
                       "Sign In",
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Rubik Medium',
-                        color: Colors.white,
-                      ),
+                          fontSize: 18,
+                          fontFamily: 'Rubik Regular',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white),
                     ),
                   ),
                 ],

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class commonModule extends StatelessWidget {
+class CommonModule extends StatelessWidget {
   final String imagePath;
   final String text;
-  const commonModule({super.key, required this.imagePath, required this.text});
+  const CommonModule({super.key, required this.imagePath, required this.text});
 
   @override
   Widget build(BuildContext context) {
