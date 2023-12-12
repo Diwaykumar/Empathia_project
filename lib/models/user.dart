@@ -10,10 +10,6 @@ class User {
   final String token;
   final String phone;
 
-
-
-
-
   User({
     required this.id,
     required this.name,
@@ -23,7 +19,6 @@ class User {
     required this.type,
     required this.token,
     required this.phone,
-
   });
 
   Map<String, dynamic> toMap() {
@@ -36,7 +31,6 @@ class User {
       'type': type,
       'token': token,
       'phone': phone
-
     };
   }
 
@@ -50,7 +44,6 @@ class User {
       type: map['type'] ?? '',
       token: map['token'] ?? '',
       phone: map['phone'] ?? '',
-
     );
   }
 
@@ -67,7 +60,6 @@ class User {
     String? type,
     String? token,
     String? phone,
-
   }) {
     return User(
       id: id ?? this.id,
@@ -78,7 +70,6 @@ class User {
       type: type ?? this.type,
       token: token ?? this.token,
       phone: phone ?? this.phone,
-
     );
   }
 }

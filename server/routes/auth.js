@@ -78,5 +78,33 @@ authRouter.post('/api/signin/:userType', async (req, res) => {
   }
 });
 
+  //  const router = express.Router();
+
+  authRouter.post('/api/updateSelectedModules/:userId', async (req, res) => {
+  console.log('Update selected modules route hit');
+ const { selectedModules } = req.body;
+ const userId = req.params.userId;
+
+ try {
+   let user = await User.findById(userId);
+
+   if (!user) {
+     return res.status(400).json({ msg: 'User does not exist' });
+   }
+
+   // Update the selectedModules field for the user
+   user.selectedModules = selectedModules;
+   await user.save();
+
+   res.json(user);
+ } catch (e) {
+   res.status(500).json({ error: e.message });
+ }
+});
+
+
+  //  module.exports = router;
+
+
 
 module.exports = authRouter;

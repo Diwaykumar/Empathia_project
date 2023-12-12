@@ -46,6 +46,11 @@ const userSchema = mongoose.Schema({
   
   },
 
+  selectedModules: {
+         type: [String], // Array of module IDs
+         default: [] // Default value is an empty array
+       }
+
 });
 
 const User = mongoose.model("User", userSchema);
