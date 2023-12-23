@@ -28,7 +28,6 @@ class _OnboardingState extends State<Onboarding> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.transparent,
       // backgroundColor: contentsList[currentIndex].backgroundColor,

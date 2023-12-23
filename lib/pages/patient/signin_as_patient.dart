@@ -75,7 +75,7 @@ class _FormFieldsState extends State<FormFields> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.black12,
+        backgroundColor: Colors.white,
         body: Form(
           key: _formKey,
           child: ListView(
@@ -217,7 +217,8 @@ class _FormFieldsState extends State<FormFields> {
                         var sharedPref = await SharedPreferences.getInstance();
                         sharedPref.setBool(SplashScreenState.KEYLOGIN, true);
                         sharedPref.setString('email', emailcontroller.text);
-                        sharedPref.setString('password', passwordcontroller.text);
+                        sharedPref.setString(
+                            'password', passwordcontroller.text);
                       }
                     }),
               ),

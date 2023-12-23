@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String hintText;
   final String labeltext;
   final String prefixIconString;
 
-  CustomTextField(
+  const CustomTextField(
       {super.key,
       required this.controller,
       required this.hintText,
       required this.labeltext,
       required this.prefixIconString});
 
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
   Icon? prefixIcon;
 
   // Check the value of prefixIconString and set the appropriate icon
-
   @override
   Widget build(BuildContext context) {
     Widget getPrefixIcon() {
-      switch (prefixIconString) {
+      switch (widget.prefixIconString) {
         case 'email':
           return Icon(Icons.email_outlined, color: Colors.cyan[600]);
         case 'phone':
@@ -34,12 +38,12 @@ class CustomTextField extends StatelessWidget {
     }
 
     return TextFormField(
-      controller: controller,
-      obscureText: prefixIconString == 'password',
+      controller: widget.controller,
+      obscureText: widget.prefixIconString == 'password',
       decoration: InputDecoration(
-        labelText: labeltext,
+        labelText: widget.labeltext,
 
-        hintText: hintText,
+        hintText: widget.hintText,
         fillColor: Colors.white,
         filled: true,
 
@@ -58,7 +62,7 @@ class CustomTextField extends StatelessWidget {
       ),
       validator: (val) {
         if (val == null || val.isEmpty) {
-          return 'Enter your $hintText';
+          return 'Enter your ${widget.hintText}';
         }
         return null; // Return null for valid input
       },

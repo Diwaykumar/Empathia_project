@@ -51,7 +51,7 @@ class _RegistrationState extends State<Registration> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.black12,
+      backgroundColor: Colors.white,
       body: Form(
         // autovalidateMode: AutovalidateMode.always,
         key: _signUpFormKey,

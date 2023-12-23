@@ -6,7 +6,7 @@ class CommonModule extends StatefulWidget {
   final String text2;
   final Function(bool isSelected) onSelect;
 
-  CommonModule({
+  const CommonModule({
     Key? key,
     required this.imagePath,
     required this.text,
@@ -72,7 +72,7 @@ class _CommonModuleState extends State<CommonModule> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Row(

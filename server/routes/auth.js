@@ -1,6 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
-const Psycologist = require('../models/psycologist'); // Updated to Psycologist model
+const psychologist = require('../models/psychologist'); // Updated to psychologist model
 const bcryptjs = require('bcryptjs');
 const authRouter = express.Router();
 const jwt = require('jsonwebtoken');
@@ -11,7 +11,7 @@ authRouter.post('/api/signup/:userType', async (req, res) => {
 
   try {
     let existingUserPatient = await User.findOne({ $or: [{ email }, { phone }] });
-    let existingUserPsychologist = await Psycologist.findOne({ $or: [{ email }, { phone }] });
+    let existingUserPsychologist = await psychologist.findOne({ $or: [{ email }, { phone }] });
 
     if (existingUserPatient || existingUserPsychologist) {
       return res.status(400).json({ msg: 'User with the same email or phone already exists' });
@@ -28,8 +28,8 @@ authRouter.post('/api/signup/:userType', async (req, res) => {
         phone,
       });
       await newUser.save();
-    } else if (userType === 'psycologist') {
-      newUser = new Psycologist({
+    } else if (userType === 'psychologist') {
+      newUser = new psychologist({
         email,
         password: hashedPassword,
         name,
@@ -55,8 +55,8 @@ authRouter.post('/api/signin/:userType', async (req, res) => {
     let user;
     if (userType === 'patient') {
       user = await User.findOne({ email });
-    } else if (userType === 'psycologist') {
-      user = await Psycologist.findOne({ email });
+    } else if (userType === 'psychologist') {
+      user = await psychologist.findOne({ email });
     } else {
       return res.status(400).json({ msg: 'Invalid user type' });
     }
@@ -101,10 +101,5 @@ authRouter.post('/api/signin/:userType', async (req, res) => {
    res.status(500).json({ error: e.message });
  }
 });
-
-
   //  module.exports = router;
-
-
-
 module.exports = authRouter;
