@@ -29,7 +29,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  video_player: ^2.2.6
 
 
 
@@ -58,10 +57,10 @@ dev_dependencies:
   flutter_native_splash: ^2.3.8
 
 flutter_native_splash:
-  color: ""#FFFFFF" # Set your desired background color
+#  color:
   image: assets/empathia.png
-  width: 300 # Set the width of the splash screen
-  height: 500 # Set the height of the splash screen
+    ```
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -84,10 +83,35 @@ flutter:
     - assets/empathia.png
     - assets/signIn.png
     - assets/signUp.png
-    - assets/forgotpasswd.png
+    - assets/module1.jpg
     - assets/module.jpg
     - assets/module2.jpg
-    - assets/hope.jpg
+    - assets/module3.jpg
+    - assets/Article.jpg
+    - assets/Articles 2.jpg
+    - assets/article 3.jpg
+    - assets/article 2.jpeg
+    - assets/Article 4.jpg
+    - assets/Article 5.jpg
+    - assets/Article 6.jpg
+    - assets/Article 7.jpg
+    - assets/Article 8.jpg
+    - assets/article 9.jpg
+    - assets/article 10.jpg
+    - assets/Article 11.jpeg
+    - assets/Article 12.jpeg
+    - assets/Article 14.jpeg
+    - assets/Article 15.jpeg
+    - assets/Article 16.jpeg
+    - assets/Article 17.jpg
+    - assets/Article 18.jpg
+    - assets/Article 19.jpeg
+    - assets/Article 20.jpg
+    - assets/Article 21.jpg
+    - assets/Article 22.jpeg
+
+#    - assets/anxiety.jpg
+
     # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

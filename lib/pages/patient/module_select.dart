@@ -92,7 +92,7 @@ class _SelectModuleState extends State<SelectModule> {
                     crossAxisCount: 2,
                     children: [
                       CommonModule(
-                        imagePath: 'assets/module.jpg',
+                        imagePath: 'assets/module1.jpg',
                         text: "Anxiety",
                         text2: "Reduce worries & \ncatastrophe",
                         onSelect: (bool isSelected) {

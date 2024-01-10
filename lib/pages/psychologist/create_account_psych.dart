@@ -45,7 +45,7 @@ class _RegistrationState extends State<Registration> {
         password: passwordcontroller.text,
         name: usernamecontroller.text,
         phone: phonecontroller.text,
-        userType: 'psychologist');
+        userType: 'psycologist');
   }
 
   @override

@@ -46,7 +46,7 @@ class _FormFieldsState extends State<FormFields> {
         context: context,
         email: _emailcontroller.text,
         password: _passwordcontroller.text,
-        userType: 'psychologist');
+        userType: 'psycologist');
   }
 
   @override

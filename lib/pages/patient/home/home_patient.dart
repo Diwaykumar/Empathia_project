@@ -1,7 +1,33 @@
-import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'homescreen.dart';
+import 'Explore screen/ExploreScreen.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      // Define routes for each page
+      routes: {
+        '/home': (context) => HomeScreen(),
+        '/explore': (context) => ExploreScreen(),
+        '/community': (context) => CommunityScreen(),
+        '/profile': (context) => ProfileScreen(),
+      },
+      home: const HomePatient(),
+    );
+  }
+}
 
 class HomePatient extends StatefulWidget {
   const HomePatient({Key? key}) : super(key: key);
@@ -11,31 +37,14 @@ class HomePatient extends StatefulWidget {
 }
 
 class _HomePatientState extends State<HomePatient> {
-  late String _greeting;
+  int _selectedIndex = 0;
 
-  @override
-  void initState() {
-    _greeting = _getGreeting();
-    super.initState();
-  }
-
-  String _getGreeting() {
-    final DateTime now = DateTime.now();
-    final int hour = now.hour;
-    String greeting;
-
-    if (hour >= 5 && hour < 12) {
-      greeting = 'Hello, Good Morning';
-    } else if (hour >= 12 && hour < 16) {
-      greeting = 'Hello, Good Afternoon';
-    } else if (hour >= 16 && hour < 20) {
-      greeting = 'Hello, Good Evening';
-    } else {
-      greeting = 'Hello, Good Night';
-    }
-
-    return greeting;
-  }
+  final List<Widget> _pages = [
+    HomeScreen(),
+    ExploreScreen(),
+    CommunityScreen(),
+    ProfileScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +59,11 @@ class _HomePatientState extends State<HomePatient> {
             activeColor: Colors.white,
             tabBackgroundColor: Colors.cyan.shade600,
             gap: 8,
+            selectedIndex: _selectedIndex,
             onTabChange: (index) {
-              (index);
+              setState(() {
+                _selectedIndex = index;
+              });
             },
             padding: const EdgeInsets.all(16.0),
             tabs: const [
@@ -64,39 +76,41 @@ class _HomePatientState extends State<HomePatient> {
         ),
       ),
       body: SafeArea(
-        child: ListView(children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.menu_outlined,
-                      color: Colors.black, size: 40),
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Image.asset('assets/logo.png', height: 50, width: 100),
-              ),
-              Expanded(
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.notification_important,
-                      color: Colors.black, size: 40),
-                ),
-              ),
-            ],
-          ),
-        ]),
+        child: _pages[_selectedIndex],
       ),
     );
   }
+}
 
+
+
+
+
+
+class CommunityScreen extends StatelessWidget {
   @override
-  Future<void> debugFillProperties(
-      DiagnosticPropertiesBuilder properties) async {
-    super.debugFillProperties(properties);
-    properties.add(StringProperty('_greeting', _greeting));
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/profile');
+        },
+        child: const Text('Go to Profile'),
+      ),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/home');
+        },
+        child: const Text('Go to Home'),
+      ),
+    );
   }
 }

@@ -48,12 +48,12 @@ class AuthService {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, 'Account created successfully, proceed to sign in');
+          showSnackBar(context, 'Account Created.');
           // Delay before navigating to the respective login screen
           Future.delayed(Duration(seconds: 2), () {
             if (userType == 'patient') {
               Navigator.pushNamed(context, '/selectModule');
-            } else if (userType == 'psychologist') {
+            } else if (userType == 'psycologist') {
               Navigator.pushNamed(context, '/signInAsPsych');
             }
           });
@@ -99,13 +99,13 @@ class AuthService {
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           await prefs.setString('userType', userType);
-          showSnackBar(context, 'Login Successfully');
+          showSnackBar(context, 'Login Succesfull');
           Future.delayed(Duration(seconds: 2), () {
             if (userType == 'patient') {
               // Navigator.pushAndRemoveUntil(context, '/homePatient');
               Navigator.pushNamedAndRemoveUntil(
                   context, '/selectModule', (route) => false);
-            } else if (userType == 'psychologist') {
+            } else if (userType == 'psycologist') {
               Navigator.pushNamedAndRemoveUntil(
                   context, '/homePsych', (route) => false);
             }
