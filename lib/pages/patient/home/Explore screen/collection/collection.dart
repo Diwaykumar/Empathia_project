@@ -19,6 +19,24 @@ class _CollectionsPageState extends State<CollectionsPage> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: CustomText(
+              text: 'Featured Artcile',
+              fontSize: 16,
+              weight: FontWeight.normal,
+              textColor: Colors.black87,
+            ),
+          ),
+          Container(
+            height: 250,
+            child: CommonArticle(
+                imagePath: 'assets/article 2.jpeg',
+                text: 'Financial Stress',
+              textColor: Colors.white,
+
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: CustomText(
               text: 'Healthy Habits',
               fontSize: 16,
               weight: FontWeight.normal,
@@ -40,7 +58,6 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   },
                   child: CommonArticle(
                     imagePath: 'assets/Articles 2.jpg',
-
                     text: "    Learning to Sleep",
                     textColor: Colors.white,
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'Community/Community.dart';
 import 'homescreen.dart';
 import 'Explore screen/ExploreScreen.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => HomeScreen(),
         '/explore': (context) => ExploreScreen(),
-        '/community': (context) => CommunityScreen(),
+        '/community': (context) => Community(),
         '/profile': (context) => ProfileScreen(),
       },
       home: const HomePatient(),
@@ -42,7 +43,7 @@ class _HomePatientState extends State<HomePatient> {
   final List<Widget> _pages = [
     HomeScreen(),
     ExploreScreen(),
-    CommunityScreen(),
+    Community(),
     ProfileScreen(),
   ];
 
@@ -87,19 +88,7 @@ class _HomePatientState extends State<HomePatient> {
 
 
 
-class CommunityScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/profile');
-        },
-        child: const Text('Go to Profile'),
-      ),
-    );
-  }
-}
+
 
 class ProfileScreen extends StatelessWidget {
   @override
