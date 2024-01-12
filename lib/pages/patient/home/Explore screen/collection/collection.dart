@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:fyp_project/common/widgets/common_article.dart';
 import '../../../../../common/widgets/custom_textfield.dart';
 
+
+
 class CollectionsPage extends StatefulWidget {
   @override
   State<CollectionsPage> createState() => _CollectionsPageState();
 }
+
 
 class _CollectionsPageState extends State<CollectionsPage> {
 
@@ -15,6 +18,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
     return Scaffold(
       // backgroundColor: Colors.blue[200],
       body: ListView(
+
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -54,7 +58,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   onTap: () {
                     // Action for Article 1
                     print("Articles Tapped");
-                    Navigator.pushNamed((context), '/homePsych');
+                    Navigator.pushNamed((context), '/Getchill');
                   },
                   child: CommonArticle(
                     imagePath: 'assets/Articles 2.jpg',

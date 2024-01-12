@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_project/pages/patient/home/Explore%20screen/collection/Articles/Feel%20Good/Get_chill.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'Community/Community.dart';
 import 'homescreen.dart';
 import 'Explore screen/ExploreScreen.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -24,6 +24,8 @@ class MyApp extends StatelessWidget {
         '/explore': (context) => ExploreScreen(),
         '/community': (context) => Community(),
         '/profile': (context) => ProfileScreen(),
+
+
       },
       home: const HomePatient(),
     );

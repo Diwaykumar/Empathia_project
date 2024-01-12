@@ -88,6 +88,7 @@ class CustomText extends StatelessWidget {
       children: [
         Text(
           text,
+          softWrap: true,
           style: TextStyle(
               fontFamily: 'Rubik Medium',
               fontSize: fontSize,
