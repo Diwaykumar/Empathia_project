@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_project/pages/patient/home/Explore%20screen/collection/Articles/Healthy%20Habits/Financial_stress.dart';
+
+import '../../pages/patient/home/Explore screen/collection/Articles/Feel Good/Get_chill.dart';
 
 class CommonArticle extends StatelessWidget {
   final String imagePath;
   final String text;
   final Color? textColor;
+  final String routename;
 
 
   CommonArticle({
     super.key,
     required this.imagePath,
     required this.text,
-    this.textColor,
+    this.textColor, required this.routename,
 
 
   });
@@ -21,41 +25,51 @@ class CommonArticle extends StatelessWidget {
     double containerHeight = MediaQuery.of(context).size.width * 0.2;
     double containerWidth = MediaQuery.of(context).size.width * 0.5;
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: containerHeight,
-        width: containerWidth,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(imagePath),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.circular(20),
 
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 6, top: 6, bottom: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    text,
-                    style: TextStyle(
-                      color: textColor,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
+    return Builder(
+      builder: (context) {
+        return GestureDetector(
+          onTap: (){
+            Navigator.pushNamed(context,routename);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: containerHeight,
+              width: containerWidth,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(imagePath),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(20),
+
               ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 6, top: 6, bottom: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          text,
+                          style: TextStyle(
+                            color: textColor,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
 
-            ],
+                  ],
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      }
     );
   }
 }
@@ -135,5 +149,7 @@ class dividerr extends StatelessWidget {
     );
   }
 }
+
+
 
 

@@ -6,6 +6,8 @@ import 'package:fyp_project/pages/onboarding/create_acc_as.dart';
 import 'package:fyp_project/pages/onboarding/sign_in_as.dart';
 import 'package:fyp_project/pages/patient/Home/home_patient.dart';
 import 'package:fyp_project/pages/patient/home/Explore%20screen/collection/Articles/Feel%20Good/Get_chill.dart';
+import 'package:fyp_project/pages/patient/home/Explore%20screen/collection/Articles/Feel%20Good/Get_inspired.dart';
+import 'package:fyp_project/pages/patient/home/Explore%20screen/collection/Articles/Healthy%20Habits/Financial_stress.dart';
 import 'package:fyp_project/pages/patient/module_select.dart';
 import 'package:fyp_project/pages/patient/create_account_patient.dart';
 import 'package:fyp_project/pages/patient/forgot_passd_pat_2.dart';
@@ -72,6 +74,8 @@ class _MyAppState extends State<MyApp> {
         '/forgotPasswdPsych3': (context) => const ForgotPasswdPsych3(),
         '/selectModule': (context) => const SelectModule(),
         '/Getchill': (context) => Getchill(),
+        '/FinancialStress': (context) => FinancialStress(),
+        '/FinancialStress': (context) => Getinspired(),
       },
     );
   }
