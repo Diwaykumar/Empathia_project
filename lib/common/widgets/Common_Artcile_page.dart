@@ -155,3 +155,29 @@ class common_text extends StatelessWidget {
     );
   }
 }
+class common_heading extends StatelessWidget {
+  final String text;
+  final double? fontSize;
+  final FontWeight? weight;
+  final Color? textColor;
+  const common_heading(
+      {super.key,
+        required this.text,
+         this.fontSize,
+         this.weight,
+         this.textColor});
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      softWrap: true,
+      style: TextStyle(
+        fontWeight: weight??FontWeight.bold,
+        fontSize: fontSize??22,
+        color: textColor ,
+
+
+      ),
+    );
+  }
+}
