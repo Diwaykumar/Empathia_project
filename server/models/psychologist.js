@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const psychologistSchema = mongoose.Schema({
   name: {
     required: true,

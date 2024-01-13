@@ -19,28 +19,28 @@ List<UnboardingContent> contentsList = [
       image: "assets/psych.png",
       title: 'Get Instant Consult From Your Preferred Psychologist',
       description: 'Speak to your preferred psychologist within 1 minute through chat, voice call, video call',
-      backgroundColor: Colors.blue.shade300
+      backgroundColor: Colors.white
   ),
   UnboardingContent(
 
       image: "assets/article.png",
       title: 'Find Trustworthy Health Information',
       description: 'Get the most accurate information about any disorder from top-class psychologists.\nRead and share top trending articles with your friends',
-      backgroundColor: Colors.blue.shade300
+      backgroundColor: Colors.white
 
   ),
   UnboardingContent(
       image: "assets/appointment.png",
       title: 'Easy Appointment Scheduling And Fast Payment',
       description: 'You can book appointment from anywhere quickly at your finger tips and get connected',
-      backgroundColor: Colors.blue.shade300
+      backgroundColor: Colors.white
 
   ),
   UnboardingContent(
       image: "assets/community.png",
       title: 'Join Community And Stay Connected',
       description: 'Share you experiences and bring a change within yourself and round our environment',
-      backgroundColor: Colors.blue.shade300
+      backgroundColor: Colors.white
   ),
 ];
 

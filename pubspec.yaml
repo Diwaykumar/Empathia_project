@@ -30,16 +30,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   http: ^1.1.0
   shared_preferences: ^2.2.2
   google_nav_bar: ^5.0.6
-  intl: ^0.17.0
+  intl: ^0.19.0
+  url_launcher: ^6.0.13
 
 dev_dependencies:
   flutter_test:
@@ -52,13 +50,15 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
   provider: ^6.0.3
   flutter_native_splash: ^2.3.8
+
 
 flutter_native_splash:
 #  color:
   image: assets/empathia.png
+
     ```
 
 
@@ -83,36 +83,37 @@ flutter:
     - assets/empathia.png
     - assets/signIn.png
     - assets/signUp.png
-    - assets/module1.jpg
-    - assets/module.jpg
-    - assets/module2.jpg
-    - assets/module3.jpg
-    - assets/Article.jpg
-    - assets/Articles 2.jpg
-    - assets/article 3.jpg
-    - assets/article 2.jpeg
-    - assets/Article 4.jpg
-    - assets/Article 5.jpg
-    - assets/Article 6.jpg
-    - assets/Article 7.jpg
-    - assets/Article 8.jpg
-    - assets/article 9.jpg
-    - assets/article 10.jpg
-    - assets/Article 11.jpeg
-    - assets/Article 12.jpeg
-    - assets/Article 14.jpeg
-    - assets/Article 15.jpeg
-    - assets/Article 16.jpeg
-    - assets/Article 17.jpg
-    - assets/Article 18.jpg
-    - assets/Article 19.jpeg
-    - assets/Article 20.jpg
-    - assets/Article 21.jpg
-    - assets/Article 22.jpeg
-    - assets/Tool1.png
     - assets/hope.jpg
-
-#    - assets/anxiety.jpg
+    - assets/module.jpg
+    - assets/astronaut.jpg
+    - assets/financialStress.jpg
+    - assets/learningToSleep.jpg
+    - assets/phoneAddict.jpg
+    - assets/meditation.jpg
+    - assets/getInspired.jpg
+    - assets/getChill.jpg
+    - assets/selfEsteem.jpg
+    - assets/manageSocialAnxiety.jpg
+    - assets/panicAttack.jpg
+    - assets/badDay.jpg
+    - assets/astronautGuide.jpg
+    - assets/brokenHeart.jpg
+    - assets/grieve.jpg
+    - assets/burnout.jpg
+    - assets/sos.jpg
+    - assets/stressKids.jpeg
+    - assets/family.jpg
+    - assets/dealingWithBurnout.jpg
+    - assets/work&life.jpg
+    - assets/workLife.jpg
+    - assets/confidence.jpg
+    - assets/hope.jpg
+    - assets/hope.png
+    - assets/health.png
+    - assets/eLetter.png
+    - assets/goals.png
+    - assets/idea.png
+    - assets/meditate.png
 
     # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

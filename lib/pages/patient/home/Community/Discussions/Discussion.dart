@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../common/widgets/common_discussion.dart';
-
+import '../../../../../common/widgets/commonDiscussion.dart';
 
 class Discussion extends StatefulWidget {
   const Discussion({super.key});
@@ -15,13 +14,16 @@ class _DiscussionState extends State<Discussion> {
   Widget build(BuildContext context) {
     // Removed screenWidth as it is not used in this snippet.
     return Scaffold(
+      backgroundColor: const Color(0xFF5f7470),
       body: ListView(
-        children: [
-          CommonDiscussion(imagePath: 'assets/Article 19.jpeg', text: 'jdbjbZJD', text2: 'ejbhdshfjbjhfjedbjjvbjDAjjbdjf', textColor: Colors.black54,
-
+        children: const [
+          CommonDiscussion(
+            imagePath: 'assets/idea.png',
+            text: 'HEHE',
+            text2: 'HEHE',
+            textColor: Colors.black54,
           )
         ],
-
       ),
     );
   }
