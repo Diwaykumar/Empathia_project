@@ -79,23 +79,6 @@ class _FormFieldsState extends State<FormFields> {
         key: _formKey,
         child: ListView(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.only(top: 20, left: 20),
-                    child: Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: Color(0xFF4D5D54),
-                    ),
-                  ),
-                ),
-              ],
-            ),
             const SizedBox(
               height: 5,
             ),

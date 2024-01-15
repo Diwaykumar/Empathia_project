@@ -3,7 +3,6 @@ import "package:flutter/material.dart";
 import '../../../common/widgets/customButton.dart';
 import '../../../common/widgets/customTextField.dart';
 
-
 class ForgotPasswordPatient extends StatefulWidget {
   const ForgotPasswordPatient({super.key});
 
@@ -32,11 +31,11 @@ class _ForgotPasswordPatientState extends State<ForgotPasswordPatient> {
                     onTap: () {
                       Navigator.of(context).pop();
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 20, left: 20),
+                    child: const Padding(
+                      padding: EdgeInsets.only(top: 20, left: 20),
                       child: Icon(
                         Icons.arrow_back_ios_new_outlined,
-                        color: Colors.cyan[600],
+                        color: Color(0xFF4D5D54),
                       ),
                     ),
                   ),
@@ -45,7 +44,9 @@ class _ForgotPasswordPatientState extends State<ForgotPasswordPatient> {
               const SizedBox(height: 15),
               Center(
                 child: Image.asset(
-                  'assets/forgotpasswd.png',height: 200, width: 500,
+                  'assets/forgotpasswd.png',
+                  height: 200,
+                  width: 500,
                 ),
               ),
               Padding(

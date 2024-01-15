@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,12 +22,33 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  Future<void> _launchPhoneDialer() async {
+  Future<void> _launchPhoneDialer(BuildContext context) async {
     const phoneNumber = 'tel:+923432402620'; // replace with your phone number
-    if (await canLaunchUrl(phoneNumber as Uri)) {
-      await launchUrl(phoneNumber as Uri);
-    } else {
-      throw 'Could not launch $phoneNumber';
+    try {
+      if (await canLaunchUrl(Uri.parse(phoneNumber))) {
+        await launchUrl(Uri.parse(phoneNumber));
+      } else {
+        throw 'Could not launch $phoneNumber';
+      }
+    } catch (e) {
+      // Display an alert with the error message
+      showCupertinoDialog(
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: Text('Error'),
+            content: Text('Could not launch phone dialer: $e'),
+            actions: [
+              CupertinoDialogAction(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
@@ -101,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const ListTile(
                 title: Text(
                   'If you are currently experiencing a mental health'
-                      'emergency or are in danger due to thoughts of suicide,'
+                      'emergency or are in danger due to thoughts of suicide, '
                       'please do to your nearest emergency room or call our helpline.',
                   style: TextStyle(
                       fontSize: 12,
@@ -132,9 +154,11 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: GestureDetector(
-                  onTap: _launchPhoneDialer, // Call the function when tapped
-                  child: const Text('0343-2402620',
-                      style: TextStyle(fontSize: 14, color: Color(0xFF1BC88C))),
+                  onTap: () => _launchPhoneDialer(context),
+                  child: const Text(
+                    '0343-2402620',
+                    style: TextStyle(fontSize: 14, color: Color(0xFF1BC88C)),
+                  ),
                 ),
               ),
             ],
@@ -144,3 +168,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+

@@ -22,6 +22,7 @@ class CreateAccAs extends StatelessWidget {
         ),
         child: Column(
           children: [
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -30,7 +31,7 @@ class CreateAccAs extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: const Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20.0),
                     child: Icon(
                       Icons.arrow_back_ios_new_outlined,
                       color: Colors.white,
