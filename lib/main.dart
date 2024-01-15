@@ -5,6 +5,7 @@ import 'package:fyp_project/pages/onboarding/createAcc.dart';
 import 'package:fyp_project/pages/onboarding/createAccAs.dart';
 import 'package:fyp_project/pages/onboarding/signInAs.dart';
 import 'package:fyp_project/pages/patient/Home/homePatient.dart';
+import 'package:fyp_project/pages/patient/SignUpPatient/OtpVerification.dart';
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Feel%20Good/getChill.dart';
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Feel%20Good/getInspired.dart';
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Feel%20Good/selfEsteemBoosterKit.dart';
@@ -113,6 +114,7 @@ class _MyAppState extends State<MyApp> {
             const DealingWithStressedKids(),
         '/parentingBurnout': (context) => const ParentingBurnout(),
         '/parentingSOS': (context) => const ParentingSOS(),
+        // '/OtpVerification': (context) => const OtpVerification(),
       },
     );
   }

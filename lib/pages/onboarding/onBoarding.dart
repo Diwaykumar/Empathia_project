@@ -100,7 +100,7 @@ class _OnboardingState extends State<Onboarding> {
                           ),
                         ),
                         Container(
-                            height: MediaQuery.of(context).size.height * 0.5,
+                            height: MediaQuery.of(context).size.height * 0.3,
                             alignment: Alignment.center,
                             child: Image.asset(contentsList[index].image)),
                       ],
@@ -110,7 +110,7 @@ class _OnboardingState extends State<Onboarding> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(24.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

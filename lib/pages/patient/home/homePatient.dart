@@ -60,7 +60,7 @@ class _HomePatientState extends State<HomePatient> {
             backgroundColor: Colors.black,
             color: const Color(0xFF4F6F52),
             activeColor: const Color(0xFF1BC88C),
-            iconSize: 40,
+            iconSize: 30,
             gap: 1,
             selectedIndex: _selectedIndex,
             onTabChange: (index) {

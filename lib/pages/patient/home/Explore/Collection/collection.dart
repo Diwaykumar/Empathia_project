@@ -27,7 +27,7 @@ class _CollectionsState extends State<Collections> {
                 text: 'FEATURED COLLECTION',
                 fontSize: 16,
                 weight: FontWeight.normal,
-                textColor: Colors.grey,
+                textColor: Colors.white,
               ),
             ),
             Container(
@@ -46,7 +46,7 @@ class _CollectionsState extends State<Collections> {
                 text: 'HEALTHY HABITS',
                 fontSize: 16,
                 weight: FontWeight.normal,
-                textColor: Colors.grey,
+                textColor: Colors.white,
               ),
             ),
             Container(
@@ -97,7 +97,7 @@ class _CollectionsState extends State<Collections> {
                 text: 'FEEL GOOD',
                 fontSize: 16,
                 weight: FontWeight.normal,
-                textColor: Colors.grey,
+                textColor: Colors.white,
               ),
             ),
             Container(
@@ -136,7 +136,7 @@ class _CollectionsState extends State<Collections> {
                 text: 'GETTING THROUGH IT',
                 fontSize: 16,
                 weight: FontWeight.normal,
-                textColor: Colors.grey,
+                textColor: Colors.white,
               ),
             ),
             Container(
@@ -197,7 +197,7 @@ class _CollectionsState extends State<Collections> {
                 text: 'PARENTING ',
                 fontSize: 16,
                 weight: FontWeight.normal,
-                textColor: Colors.grey,
+                textColor: Colors.white,
               ),
             ),
             Container(
@@ -243,7 +243,7 @@ class _CollectionsState extends State<Collections> {
                 text: 'HOW WE WORK',
                 fontSize: 16,
                 weight: FontWeight.normal,
-                textColor: Colors.grey,
+                textColor: Colors.white,
               ),
             ),
             Container(

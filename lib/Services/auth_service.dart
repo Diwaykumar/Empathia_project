@@ -104,7 +104,7 @@ class AuthService {
             if (userType == 'patient') {
               // Navigator.pushAndRemoveUntil(context, '/homePatient');
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/selectModule', (route) => false);
+                  context, "/homePatient", (route) => false);
             } else if (userType == 'psycologist') {
               Navigator.pushNamedAndRemoveUntil(
                   context, '/homePsych', (route) => false);

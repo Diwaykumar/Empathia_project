@@ -5,84 +5,82 @@ class CommonDiscussion extends StatelessWidget {
   final String text;
   final String text2;
   final Color? textColor;
+  final String Routename;
 
   const CommonDiscussion({
-    super.key,
+    Key? key,
     required this.imagePath,
     required this.text,
     this.textColor,
     required this.text2,
-  });
+    required this.Routename,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: Container(
-        height: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Row(
-          children: [
-            // Logo image on the left
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(200),
-                child: Image.asset(
-                  imagePath,
-                  width: 60,
-                  height: 60,
+      padding: const EdgeInsets.only(left: 10, top: 15, bottom: 5),
+      child: GestureDetector(
+        onTap: (){
+          Navigator.pushNamed(context, Routename);
+        },
+        child: Container(
+          height: 70,
+          decoration: BoxDecoration(
+            // borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              // Logo image on the left
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 2),
+                child: ClipOval(
+                  child: Image.asset(
+                    imagePath,
+                    width: 62,
+                    height: 62,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      text,
-                      style: TextStyle(
-                        color: textColor,
-                      ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text(text2)],
-                ),
-              ],
-            )
-            // Text in the center
-            // Expanded(
-            //   child: Center(
-            //     child: Text(
-            //       text,
-            //       style: TextStyle(
-            //         color: textColor ?? Colors.black, // Use the provided text color or default to black
-            //         fontWeight: FontWeight.w600,
-            //         fontSize: 16,
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            // // Icon on the right
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: IconButton(
-            //     // Icons.arrow_forward_ios_rounded,
-            //     color: Colors.white, // Set the color of the icon
-            //     // size: 24,
-            //     onPressed: () {  }, icon: Icon(Icons.arrow_forward_ios_outlined), // Set the size of the icon
-            //   ),
-            // ),
-          ],
+              SizedBox(width: 10), // Add some space between the image and text
+              // Text in the center
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 1,
+                  ),
+                  Text(
+                    text,
+
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1,
+                  ),
+                  Text(
+                    text2,
+                    softWrap: true,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white70,
+                    ),
+                  ),
+
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

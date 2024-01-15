@@ -269,20 +269,22 @@ class _CommonArticlePageState extends State<CommonArticlePage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+
             bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(20),
+              preferredSize: const Size.fromHeight(60),
               child: Container(
+                height: 60,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
                 ),
                 width: double.maxFinite,
                 padding: const EdgeInsets.only(top: 5, bottom: 10),
-                child: Center(child: Text(widget.title)),
+                child: Center(child: Text(widget.title, style: TextStyle(fontSize: 16),)),
               ),
             ),
             pinned: true,
-            backgroundColor: Colors.transparent,
+            backgroundColor: Color(0xFF5f7470),
             expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
@@ -294,10 +296,10 @@ class _CommonArticlePageState extends State<CommonArticlePage> {
           ),
           SliverToBoxAdapter(
             child: Container(
-              margin: const EdgeInsets.only(top: 20),
+              // margin: const EdgeInsets.only(top: 20),
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(60.0)),
+                // borderRadius: BorderRadius.vertical(top: Radius.circular(60.0)),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),

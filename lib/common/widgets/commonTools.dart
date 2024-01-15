@@ -30,8 +30,8 @@ class CommonTools extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(
                 imagepath,
-                width: 60, // Set the width of the logo
-                height: 60, // Set the height of the logo
+                width: 40, // Set the width of the logo
+                height: 40, // Set the height of the logo
               ),
             ),
             // Text in the center

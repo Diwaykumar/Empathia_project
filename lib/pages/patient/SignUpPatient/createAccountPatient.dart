@@ -66,10 +66,10 @@ class _RegistrationState extends State<Registration> {
                   child: const Padding(
                     padding: EdgeInsets.all(20.0),
                     child: Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: Color(0xFF4D5D54)),
-                    ),
+                        Icons.arrow_back_ios_new_outlined,
+                        color: Color(0xFF4D5D54)),
                   ),
+                ),
               ],
             ),
             const SizedBox(
@@ -184,6 +184,7 @@ class _RegistrationState extends State<Registration> {
                   text: "Register",
                   onTap: () {
                     if (_signUpFormKey.currentState!.validate()) {
+                      // Navigator.pushReplacementNamed(context, )
                       signUpUser();
                     }
                   }),
@@ -195,7 +196,7 @@ class _RegistrationState extends State<Registration> {
                   'Already a member? ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      // decoration: TextDecoration.underline,
+                    // decoration: TextDecoration.underline,
                       fontSize: 18,
                       fontFamily: 'Rubik Regular',
                       color: Colors.black),
