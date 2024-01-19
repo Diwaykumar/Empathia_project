@@ -5,27 +5,6 @@ import 'Explore/Explore.dart';
 import 'Home/home_screen.dart';
 import 'Profile/user_profile.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      // Define routes for each page
-      routes: {
-        '/home': (context) => const HomeScreen(),
-        '/explore': (context) => const Explore(),
-        '/community': (context) => const Community(),
-        '/profile': (context) => const Profile(),
-      },
-      home: const HomePatient(),
-    );
-  }
-}
 
 class HomePatient extends StatefulWidget {
   const HomePatient({super.key});

@@ -4,8 +4,12 @@ import 'package:fyp_project/Services/auth_service.dart';
 import 'package:fyp_project/pages/onboarding/createAcc.dart';
 import 'package:fyp_project/pages/onboarding/createAccAs.dart';
 import 'package:fyp_project/pages/onboarding/signInAs.dart';
+import 'package:fyp_project/pages/patient/Home/Community/community.dart';
+import 'package:fyp_project/pages/patient/Home/Explore/Explore.dart';
+import 'package:fyp_project/pages/patient/Home/Home/home_screen.dart';
+import 'package:fyp_project/pages/patient/Home/Profile/user_profile.dart';
 import 'package:fyp_project/pages/patient/Home/homePatient.dart';
-import 'package:fyp_project/pages/patient/SignUpPatient/OtpVerification.dart';
+// import 'package:fyp_project/pages/patient/SignUpPatient/OtpVerification.dart';
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Feel%20Good/getChill.dart';
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Feel%20Good/getInspired.dart';
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Feel%20Good/selfEsteemBoosterKit.dart';
@@ -25,6 +29,11 @@ import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Paren
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Parenting%20Burnout/dealingWithStressedKids.dart';
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Parenting%20Burnout/parentingBurnout.dart';
 import 'package:fyp_project/pages/patient/home/Explore/Collection/Articles/Parenting%20Burnout/parentingSOS.dart';
+import 'package:fyp_project/common/widgets/MeditationMusicPage.dart';
+import 'package:fyp_project/pages/patient/home/Explore/Tools/Meditation/Relax%20Your%20muscles/Relax_your_muscles.dart';
+// import 'package:fyp_project/pages/patient/home/Explore/Tools/Meditation/Self-esteem/Meditate.dart';
+import 'package:fyp_project/pages/patient/home/Explore/Tools/Meditation/Self-esteem/Self_esteem.dart';
+import 'package:fyp_project/pages/patient/home/Explore/Tools/Meditation/meditate.dart';
 import 'package:fyp_project/pages/patient/home/moduleSelect.dart';
 import 'package:fyp_project/pages/patient/SignUpPatient/createAccountPatient.dart';
 import 'package:fyp_project/pages/patient/ForgotPassword/forgotPasswdPat2.dart';
@@ -92,6 +101,10 @@ class _MyAppState extends State<MyApp> {
         '/forgotPasswdPsych2': (context) => const ForgotPasswdPsych2(),
         '/forgotPasswdPsych3': (context) => const ForgotPasswdPsych3(),
         '/selectModule': (context) => const SelectModule(),
+        '/home': (context) => const HomeScreen(),
+        '/explore': (context) => const Explore(),
+        '/community': (context) => const Community(),
+        '/profile': (context) => const Profile(),
         '/getChill': (context) => const GetChill(),
         '/getInspired': (context) => const GetInspired(),
         'selfEsteemBoosterKit': (context) => const SelfEsteemBoosterKit(),
@@ -114,6 +127,14 @@ class _MyAppState extends State<MyApp> {
             const DealingWithStressedKids(),
         '/parentingBurnout': (context) => const ParentingBurnout(),
         '/parentingSOS': (context) => const ParentingSOS(),
+        // '/meditate': (context) => const meditate(),
+        '/meditate': (context) => const MeditateScreen(),
+        '/SelfEsteem': (context) => const SelfEsteem(),
+        '/SelfEsteemMed': (context) => const SelfSteamMed(),
+        '/RelaxMuscles': (context) => const RelaxMuscles(),
+        '/RelaxMuscleMed': (context) => const RelaxMuscleMed(),
+
+
         // '/OtpVerification': (context) => const OtpVerification(),
       },
     );

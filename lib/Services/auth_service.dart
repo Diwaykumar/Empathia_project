@@ -100,11 +100,11 @@ class AuthService {
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           await prefs.setString('userType', userType);
           showSnackBar(context, 'Login Succesfull');
-          Future.delayed(Duration(seconds: 2), () {
+          Future.delayed(Duration(seconds: 1), () {
             if (userType == 'patient') {
               // Navigator.pushAndRemoveUntil(context, '/homePatient');
-              Navigator.pushNamedAndRemoveUntil(
-                  context, "/homePatient", (route) => false);
+              Navigator.pushReplacementNamed(
+                  context, "/homePatient",);
             } else if (userType == 'psycologist') {
               Navigator.pushNamedAndRemoveUntil(
                   context, '/homePsych', (route) => false);

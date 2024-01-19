@@ -22,34 +22,36 @@ class _ToolsState extends State<Tools> {
                 'assets/meditate.png', // Make sure the asset exists in your project and is listed in pubspec.yaml
             text: 'Meditate',
             textColor: Colors
-                .white, // If textColor is optional, it can be omitted or set to a default inside CommonTools
+                .white,
+            // routename: '/meditate', // If textColor is optional, it can be omitted or set to a default inside CommonTools
+            routename: '/meditate', // If textColor is optional, it can be omitted or set to a default inside CommonTools
           ),
           CommonTools(
             imagepath:
                 'assets/eLetter.png', // Make sure the asset exists in your project and is listed in pubspec.yaml
             text: 'Guided Journey',
             textColor: Colors
-                .white, // If textColor is optional, it can be omitted or set to a default inside CommonTools
+                .white, routename: '', // If textColor is optional, it can be omitted or set to a default inside CommonTools
           ),
           CommonTools(
             imagepath:
                 'assets/idea.png', // Make sure the asset exists in your project and is listed in pubspec.yaml
             text: 'Thoughts',
             textColor: Colors
-                .white, // If textColor is optional, it can be omitted or set to a default inside CommonTools
+                .white, routename: '', // If textColor is optional, it can be omitted or set to a default inside CommonTools
           ),
           CommonTools(
             imagepath:
                 'assets/hope.png', // Make sure the asset exists in your project and is listed in pubspec.yaml
             text: 'Hope',
             textColor: Colors
-                .white, // If textColor is optional, it can be omitted or set to a default inside CommonTools
+                .white, routename: '', // If textColor is optional, it can be omitted or set to a default inside CommonTools
           ),
           CommonTools(
             imagepath:
                 'assets/health.png', // Make sure the asset exists in your project and is listed in pubspec.yaml
             text: 'Health',
-            textColor: Colors.white,
+            textColor: Colors.white, routename: '',
           ),
 
           // ... Add more widgets as needed

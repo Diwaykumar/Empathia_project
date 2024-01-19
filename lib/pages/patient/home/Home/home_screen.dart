@@ -4,19 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../common/widgets/Questonarie.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-    );
-  }
-}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -52,11 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
         context: context,
         builder: (context) {
           return CupertinoAlertDialog(
-            title: Text('Error'),
+            title: const Text('Error'),
             content: Text('Could not launch phone dialer: $e'),
             actions: [
               CupertinoDialogAction(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -74,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: const Color(0xFF43766C),
+          automaticallyImplyLeading: false,
         actions: [
           Builder(
             builder: (context) => IconButton(
@@ -104,8 +93,36 @@ class _HomeScreenState extends State<HomeScreen> {
                     '${getGreetings()},\nNice to see you!',
                     style: const TextStyle(fontSize: 18, color: Colors.white),
                   ),
-                  SizedBox(height: 20),
-                  QuestionnaireContainer(),
+                  const SizedBox(height: 20),
+                  // QuestionnaireContainer(),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "IT'S TIME FOR CHECK-IN",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 2),
+                        Text(
+                          'How was your week?',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.normal),
+                        ),
+                        // SizedBox(height: ),
+                        // Add options for the user to answer the question (e.g., radio buttons, sliders, etc.)
+                        // You can customize this part based on your desired questionnaire format.
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
@@ -141,8 +158,8 @@ class _HomeScreenState extends State<HomeScreen> {
             const ListTile(
               title: Text(
                 'If you are currently experiencing a mental health'
-                    'emergency or are in danger due to thoughts of suicide, '
-                    'please do to your nearest emergency room or call our helpline.',
+                'emergency or are in danger due to thoughts of suicide, '
+                'please do to your nearest emergency room or call our helpline.',
                 style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.normal,
@@ -152,14 +169,14 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 3.0),
             const ListTile(
                 title: Text(
-                  'If you are not in immediate danger but would like to talk to'
-                      'someone about your thoughts of suicide, you can also'
-                      'contact a therapist.',
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black),
-                )),
+              'If you are not in immediate danger but would like to talk to'
+              'someone about your thoughts of suicide, you can also'
+              'contact a therapist.',
+              style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black),
+            )),
             const ListTile(
               title: Text(
                 'Szabist-Karachi',
@@ -213,5 +230,3 @@ class _HomeScreenState extends State<HomeScreen> {
 //     );
 //   }
 // }
-
-
